@@ -14,7 +14,7 @@ public class UniversidadGrupo28 {
     public static void main(String[] args) {
        
        
-           Alumno estudiante=new Alumno(18,88236714,"Matilda","Alvares",LocalDate.of(1985, 6, 12), true);
+           Alumno estudiante=new Alumno(20,852967143,"Soria Rodriguez","Mirta Luna",LocalDate.of(1982, 4, 20), true);
            AlumnoData alu=new AlumnoData();
          //alu.guardarAlumno(estudiante);
          alu.modificarAlumno(estudiante);

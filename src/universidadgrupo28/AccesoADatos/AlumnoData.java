@@ -47,8 +47,8 @@ public class AlumnoData {
     public void modificarAlumno (Alumno alumno){
         
      
-            String sql="UPDATE alumno SET dni = ?,apellido = ?,nombre = ?, fechaNacimiento = ? "
-                    + "'WHERE idAlumno = ?'";
+            String sql="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ? "
+                    + "WHERE idAlumno = ?";
        try {
             PreparedStatement ps= red.prepareStatement(sql);
             ps.setInt(1,alumno.getDni());
