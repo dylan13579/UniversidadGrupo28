@@ -82,7 +82,7 @@ public class AlumnoData {
            
            if(exito==1){
                
-               JOptionPane.showMessageDialog(null, "Se ah eliminado un alumno ");
+               JOptionPane.showMessageDialog(null, "Se ha eliminado un alumno ");
            }
             
         } catch (SQLException ex) {
