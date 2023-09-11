@@ -17,7 +17,8 @@ public class UniversidadGrupo28 {
            Alumno estudiante=new Alumno(20,852967143,"Soria Rodriguez","Mirta Luna",LocalDate.of(1982, 4, 20), true);
            AlumnoData alu=new AlumnoData();
          //alu.guardarAlumno(estudiante);
-         alu.modificarAlumno(estudiante);
+         //alu.modificarAlumno(estudiante);
+           alu.eliminarALumno(20);
 
         
     }

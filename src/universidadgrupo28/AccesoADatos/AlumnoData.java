@@ -15,6 +15,7 @@ import universidadgrupo28.Entidades.Alumno;
 
 public class AlumnoData {
     private Connection red = null;
+    private String sql;
     public AlumnoData (){
         red = Conexion.getConexion();
         
@@ -47,7 +48,7 @@ public class AlumnoData {
     public void modificarAlumno (Alumno alumno){
         
      
-            String sql="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ? "
+            String sql="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ?"
                     + "WHERE idAlumno = ?";
        try {
             PreparedStatement ps= red.prepareStatement(sql);
@@ -68,6 +69,28 @@ public class AlumnoData {
         
         
     }
+    
+    
+    public void eliminarALumno(int id){
+        
+        String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+        try {
+            PreparedStatement ps =red.prepareStatement(sql);
+            
+            ps.setInt(1,id);
+           int exito=ps.executeUpdate();
+           
+           if(exito==1){
+               
+               JOptionPane.showMessageDialog(null, "Se ah eliminado un alumno ");
+           }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla  alumno ");
+        }
+    }
+    
+    
     
     
 }
