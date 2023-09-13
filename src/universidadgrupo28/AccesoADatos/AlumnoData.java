@@ -47,7 +47,7 @@ public class AlumnoData {
     
     }
     
-    public void modificarAlumno (Alumno alumno){
+      public void modificarAlumno (Alumno alumno){
         
      
             String sql="UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ?"
@@ -70,10 +70,10 @@ public class AlumnoData {
         }
         
         
-    }
+     }
     
     
-    public void eliminarALumno(int id){
+      public void eliminarALumno(int id){
         
         String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
         try {
@@ -90,10 +90,10 @@ public class AlumnoData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla  alumno ");
         }
-    }
+      }
     
     
-    public Alumno buscarAlumno(int id){
+      public Alumno buscarAlumno(int id){
         
         String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
         
@@ -122,7 +122,7 @@ public class AlumnoData {
         }
         
         return alumno;
-    }
+     }
     
      public Alumno buscarAlumnoPorDni(int dni){
         
