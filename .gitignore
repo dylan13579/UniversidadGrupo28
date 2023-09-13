@@ -24,3 +24,9 @@ hs_err_pid*
 replay_pid*
 /build/
 nbproject/private/private.xml
+nbproject/private/private.xml
+nbproject/build-impl.xml
+nbproject/private/private.properties
+nbproject/private/private.xml
+*.xml
+*.xml

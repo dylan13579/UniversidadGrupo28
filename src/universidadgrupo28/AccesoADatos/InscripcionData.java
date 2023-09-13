@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 import universidadgrupo28.Entidades.Inscripciones;
@@ -67,8 +69,35 @@ public class InscripcionData {
            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
        }
     }
-  
-}
+    
+    public void eliminarIncripcion (int idAlumno, int idMateria){
+        
+        String sql="DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ?";
+       try {
 
-   
+           PreparedStatement ps=red.prepareStatement(sql);
+           ps.setInt(1, idAlumno);
+           ps.setInt(2, idMateria);
+           
+           int filas=ps.executeUpdate();
+           if(filas>0){
+               JOptionPane.showMessageDialog(null, "Filas borradas con exito");
+               
+             
+               
+           }
+            ps.close();
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error al acceder a tabla de inscripcion");
+           
+       }
+       
+    }
+    
+}
+    
+       
+
+
+
 
