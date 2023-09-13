@@ -63,16 +63,18 @@ public class UniversidadGrupo28 {
 //          System.out.println("-----------------");
 //      }
 
-      AlumnoData ad=new AlumnoData();
-      MateriaData md=new MateriaData();
-      InscripcionData id=new InscripcionData();
-
-       Alumno alum=ad.buscarAlumno(19);
-       Materia mate=md.buscarMateria(3);
-       Inscripciones ins=new Inscripciones(alum,mate,8);
+//      AlumnoData ad=new AlumnoData();
+//      MateriaData md=new MateriaData();
+//      InscripcionData id=new InscripcionData();
+//
+//       Alumno alum=ad.buscarAlumno(19);
+//       Materia mate=md.buscarMateria(3);
+//       Inscripciones ins=new Inscripciones(alum,mate,8);
       
             //id.guardarInscripcion(ins);
-            id.actualizarNota(2, 4, 8);
+            //id.actualizarNota(2, 4, 8);
+            
+            
   }
 
    
