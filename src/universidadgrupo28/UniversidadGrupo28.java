@@ -1,10 +1,11 @@
 
 package universidadgrupo28;
 
-import java.time.LocalDate;
-import universidadgrupo28.AccesoADatos.AlumnoData;
-import universidadgrupo28.AccesoADatos.MateriaData;
+//import java.time.LocalDate;
+import universidadgrupo28.AccesoADatos.*;
 import universidadgrupo28.Entidades.Alumno;
+import universidadgrupo28.Entidades.Inscripciones;
+
 import universidadgrupo28.Entidades.Materia;
 
 
@@ -54,15 +55,26 @@ public class UniversidadGrupo28 {
                     
        //}
          
-      MateriaData estudios=new MateriaData(); 
-      for(Materia materia:estudios.listarMateria()){
-          System.out.println("Materia = "+materia.getNombre());
-          System.out.println("Año = "+materia.getIdMateria());
-          
-          System.out.println("-----------------");
-      } 
-    }
-    
+//      MateriaData estudios=new MateriaData(); 
+//      for(Materia materia:estudios.listarMateria()){
+//          System.out.println("Materia = "+materia.getNombre());
+//          System.out.println("Año = "+materia.getIdMateria());
+//          
+//          System.out.println("-----------------");
+//      }
+
+      AlumnoData ad=new AlumnoData();
+      MateriaData md=new MateriaData();
+      InscripcionData id=new InscripcionData();
+
+      Alumno alum=ad.buscarAlumno(19);
+      Materia mate=md.buscarMateria(3);
+      Inscripciones ins=new Inscripciones(alum,mate,8);
+      
+      id.guardarInscripcion(ins);
+  }
+
+   
      
 }
     
