@@ -67,11 +67,12 @@ public class UniversidadGrupo28 {
       MateriaData md=new MateriaData();
       InscripcionData id=new InscripcionData();
 
-      Alumno alum=ad.buscarAlumno(19);
-      Materia mate=md.buscarMateria(3);
-      Inscripciones ins=new Inscripciones(alum,mate,8);
+       Alumno alum=ad.buscarAlumno(19);
+       Materia mate=md.buscarMateria(3);
+       Inscripciones ins=new Inscripciones(alum,mate,8);
       
-      id.guardarInscripcion(ins);
+            //id.guardarInscripcion(ins);
+            id.actualizarNota(2, 4, 8);
   }
 
    

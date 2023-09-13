@@ -46,6 +46,27 @@ public class InscripcionData {
       
       
   }
+    
+    public void actualizarNota(int idAlumno, int idMateria, double nota){
+        
+        String sql="UPDATE inscripcion SET nota = ? WHERE idAlumno = ? AND idMAteria = ?";
+        
+       try {
+           PreparedStatement ps=red.prepareStatement(sql);
+           ps.setDouble(1, nota);
+           ps.setInt(2, idAlumno);
+           ps.setInt(3, idMateria);
+           
+           int f=ps.executeUpdate();
+           if(f>0){
+              JOptionPane.showMessageDialog(null, "Nota actualizada");
+          } 
+           ps.close();
+           
+                   } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+       }
+    }
   
 }
 
