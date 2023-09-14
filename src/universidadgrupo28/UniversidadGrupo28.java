@@ -1,7 +1,7 @@
 
 package universidadgrupo28;
 
-//import java.time.LocalDate;
+import java.time.LocalDate;
 import universidadgrupo28.AccesoADatos.*;
 import universidadgrupo28.Entidades.Alumno;
 import universidadgrupo28.Entidades.Inscripciones;
@@ -17,6 +17,8 @@ public class UniversidadGrupo28 {
     public static void main(String[] args) {
        
          
+        //ALUMNO DATA
+        
     //Alumno estudiante=new Alumno(20,852967143,"Soria Rodriguez","Mirta Luna",LocalDate.of(1982, 4, 20), true);
             //AlumnoData alu=new AlumnoData();
          //alu.guardarAlumno(estudiante);
@@ -37,10 +39,16 @@ public class UniversidadGrupo28 {
 //    System.out.println(alumno.getApellido());
 //    System.out.println(alumno.getNombre());
 //    System.out.println(alumno.getFechaNac());
-//           
 //    System.out.println("-----------------");
 //    }
         
+
+
+
+
+
+        //MATERIA DATA    
+
     //Materia mat=new Materia(1,"Base de Datos ",1,true);
             //MateriaData estudios=new MateriaData();
          //estudios.guaradarMateria(mat);
@@ -59,9 +67,16 @@ public class UniversidadGrupo28 {
 //      for(Materia materia:estudios.listarMateria()){
 //          System.out.println("Materia = "+materia.getNombre());
 //          System.out.println("Año = "+materia.getIdMateria());
-//          
 //          System.out.println("-----------------");
 //      }
+
+
+
+
+
+
+
+        //INCRIPCIONES DATA                 
 
       AlumnoData ad=new AlumnoData();
       MateriaData md=new MateriaData();
@@ -74,17 +89,60 @@ public class UniversidadGrupo28 {
 //      
 //            id.guardarInscripcion(ins);
 //            id.actualizarNota(2, 4, 8);
-              id.eliminarIncripcion(3, 3);
+//            id.borrarIncripcion(1, 3);
+
+//          for(Inscripciones inscrip:id.obtenerIncripcion()){
+//              System.out.println("ID = "+inscrip.getIdInscripcion());
+//              System.out.println("Apellido = "+inscrip.getAlumno().getApellido());
+//              System.out.println("Materia = "+inscrip.getMateria().getNombre());
+//              System.out.println("-----------------");
+//          }
 
 
-         
+            
+//        for(Inscripciones estudi:id.obtenerIncripcionPorAlumno(19)){
+//            System.out.println("ID Inscripcion = "+estudi.getIdInscripcion());
+//            System.out.println("materia = "+estudi.getMateria().getIdMateria());
+//            System.out.println("apellido = "+estudi.getAlumno().getApellido());
+//            System.out.println("nombre = "+estudi.getAlumno().getNombre());
+//            System.out.println("nota = "+estudi.getNota());
+//        }
 
-  }
+
+//          for(Materia materias:id.obternerMateriasCursadas(2)){
+//              System.out.println("nombre = "+materias.getNombre());
+//              System.out.println("año = "+materias.getAnioMateria());
+//              System.out.println("-------");
+//                   
+//          }
+
+
+
+//            for(Materia materia:id.obternerMateriasCursadas(3)){ 
+//                System.out.println("Laa materias de este alumno son = "+materia.getNombre());
+//               
+//            }
+
+
+
+//          for(Materia materias:id.obternerMateriasNoCursadas(4)){
+//              System.out.println("Materia no Cursada  = "+materias.getNombre());
+//         }
+           
+
+           for(Alumno estudi:id.obternerAlumnosPorMaterias(3)){
+            System.out.println("ID de Alumno: " + estudi.getIdAlumno());
+             
+           }
+
+    }
+
+}
 
         
         
         
      
-}
+
     
 
