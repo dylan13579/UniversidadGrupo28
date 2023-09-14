@@ -89,7 +89,7 @@ public class InscripcionData {
             ps.close();
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error al acceder a tabla de inscripcion");
-           
+        s   
        }
        
     }
