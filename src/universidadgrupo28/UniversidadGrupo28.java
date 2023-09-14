@@ -135,7 +135,7 @@ public class UniversidadGrupo28 {
              
             System.out.println("ID de Alumno: " + estudi.getIdAlumno());
                System.out.println("nombre = "+estudi.getApellido()+ " "+ estudi.getNombre());
-               System.out.println("---");
+               System.out.println("-------");
              
            }
     }
