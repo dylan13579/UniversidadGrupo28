@@ -55,13 +55,13 @@ public class UniversidadGrupo28 {
          //estudios.modificarMateria(mat);
                //estudios.elimnarMateria(11);
                     //Materia encuentra=estudios.buscarMateria(3);
-                    //Materia encuentra=estudios.buscarMateriaPorAnio(1);
+                    //Materia encuentra=estudios.buscarMateriaPorAnio(2);
                     //if(encuentra!=null){
                     //System.out.println("nombre = "+encuentra.getNombre());
                     //System.out.println("año = "+encuentra.getAnioMateria());
                        
                     
-       //}
+                    //}
          
 //      MateriaData estudios=new MateriaData(); 
 //      for(Materia materia:estudios.listarMateria()){
@@ -82,9 +82,9 @@ public class UniversidadGrupo28 {
       MateriaData md=new MateriaData();
       InscripcionData id=new InscripcionData();
 
-       Alumno alum=ad.buscarAlumno(19);
-       Materia mate=md.buscarMateria(3);
-       Inscripciones ins=new Inscripciones(alum,mate,8);
+       //Alumno alum=ad.buscarAlumno(19);
+       //Materia mate=md.buscarMateria(3);
+       //Inscripciones ins=new Inscripciones(alum,mate,8);
          
 //      
 //            id.guardarInscripcion(ins);
@@ -112,6 +112,7 @@ public class UniversidadGrupo28 {
 //          for(Materia materias:id.obternerMateriasCursadas(2)){
 //              System.out.println("nombre = "+materias.getNombre());
 //              System.out.println("año = "+materias.getAnioMateria());
+//              
 //              System.out.println("-------");
 //                   
 //          }
@@ -130,19 +131,12 @@ public class UniversidadGrupo28 {
 //         }
            
 
-           for(Alumno estudi:id.obternerAlumnosPorMaterias(3)){
+           for(Alumno estudi:id.obternerAlumnosPorMaterias(5)){
+             
             System.out.println("ID de Alumno: " + estudi.getIdAlumno());
+               System.out.println("nombre = "+estudi.getApellido()+ " "+ estudi.getNombre());
+               System.out.println("---");
              
            }
-
     }
-
 }
-
-        
-        
-        
-     
-
-    
-
