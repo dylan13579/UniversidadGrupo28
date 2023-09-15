@@ -1,13 +1,10 @@
 package universidadgrupo28.Vistas;
 
-import java.util.TreeSet;
-import universidadgrupo28.Entidades.*;
+
 
 
 public class Menu extends javax.swing.JFrame {
- public static TreeSet<Alumno> listarAlumno=new TreeSet<>();
- public static TreeSet<Materia> listarMateria=new TreeSet<>();
- public static TreeSet<Inscripciones> listarInscripcion=new TreeSet<>();
+
   
     public Menu() {
         initComponents();
