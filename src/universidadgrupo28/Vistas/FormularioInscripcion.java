@@ -5,17 +5,27 @@
  */
 package universidadgrupo28.Vistas;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author myria
  */
 public class FormularioInscripcion extends javax.swing.JInternalFrame {
+private DefaultTableModel modelo=new DefaultTableModel() {
+    
+    public boolean isCellEditTable(int f, int c){
+        return false;    
+    }
+
+};
 
     /**
      * Creates new form FormularioInscripcion
      */
     public FormularioInscripcion() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -28,13 +38,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jcbAlumnoBusq = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jrbMateriaInsc = new javax.swing.JRadioButton();
+        jrbMateriaNoInsc = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtInscripcion = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -43,18 +53,23 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Seleccione un alumno");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbAlumnoBusq.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbAlumnoBusq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAlumnoBusqActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Inscripcion");
+        jLabel2.setText("Formulario de Inscripcion");
 
         jLabel3.setText("Lista de Materia");
 
-        jRadioButton1.setText("Materias Inscriptas");
+        jrbMateriaInsc.setText("Materias Inscriptas");
 
-        jRadioButton2.setText("Materias no Inscriptas");
+        jrbMateriaNoInsc.setText("Materias no Inscriptas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtInscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -65,7 +80,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtInscripcion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,7 +93,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(63, 63, 63)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcbAlumnoBusq, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
@@ -94,9 +109,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(jRadioButton1)
+                .addComponent(jrbMateriaInsc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
+                .addComponent(jrbMateriaNoInsc)
                 .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
@@ -106,7 +121,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAlumnoBusq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(55, 55, 55)
                 .addComponent(jLabel3)
@@ -117,23 +132,35 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1))))
+                            .addComponent(jrbMateriaNoInsc)
+                            .addComponent(jrbMateriaInsc))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbAlumnoBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoBusqActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbAlumnoBusqActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox<String> jcbAlumnoBusq;
+    private javax.swing.JRadioButton jrbMateriaInsc;
+    private javax.swing.JRadioButton jrbMateriaNoInsc;
+    private javax.swing.JTable jtInscripcion;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera(){
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Año");
+        jtInscripcion.setModel(modelo);
+    
+    }
 }
