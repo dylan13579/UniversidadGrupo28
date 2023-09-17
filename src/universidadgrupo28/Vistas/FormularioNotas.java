@@ -101,6 +101,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         );
 
         jbGuardarNotas.setText("Guardar");
+        jbGuardarNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarNotasActionPerformed(evt);
+            }
+        });
 
         jbSalirNotas.setText("Salir");
         jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +167,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jbSalirNotasActionPerformed
+
+    private void jbGuardarNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarNotasActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jbGuardarNotasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
