@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package universidadgrupo28.Vistas;
 
 import javax.swing.table.DefaultTableModel;
@@ -106,6 +103,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         jbGuardarNotas.setText("Guardar");
 
         jbSalirNotas.setText("Salir");
+        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirNotasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,6 +157,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbSalirNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirNotasActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirNotasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -90,6 +90,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         jbGuardarInsc.setText("Guardar Inscripcion");
 
         jbSalirInsc.setText("Salir");
+        jbSalirInsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirInscActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,6 +163,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
     private void jcbAlumnoBusqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoBusqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAlumnoBusqActionPerformed
+
+    private void jbSalirInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirInscActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirInscActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

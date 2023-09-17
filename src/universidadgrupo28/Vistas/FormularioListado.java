@@ -82,6 +82,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         );
 
         jbSalirListado.setText("Salir");
+        jbSalirListado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirListadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,6 +128,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbSalirListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirListadoActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbSalirListadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

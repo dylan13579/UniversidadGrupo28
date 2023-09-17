@@ -56,7 +56,7 @@ private AlumnoData ad;
         jbBuscar = new javax.swing.JButton();
         jbNuevo = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
-        jbSalir = new javax.swing.JButton();
+        jbSalirAlumno = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jrbActivo = new javax.swing.JRadioButton();
         jrbNoActivo = new javax.swing.JRadioButton();
@@ -95,10 +95,10 @@ private AlumnoData ad;
 
         jbGuardar.setText("Guardar");
 
-        jbSalir.setText("Salir");
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+        jbSalirAlumno.setText("Salir");
+        jbSalirAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
+                jbSalirAlumnoActionPerformed(evt);
             }
         });
 
@@ -124,7 +124,7 @@ private AlumnoData ad;
                         .addGap(32, 32, 32)
                         .addComponent(jbGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbSalir))
+                        .addComponent(jbSalirAlumno))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -190,7 +190,7 @@ private AlumnoData ad;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jbGuardar)
-                    .addComponent(jbSalir)
+                    .addComponent(jbSalirAlumno)
                     .addComponent(jbEliminar))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
@@ -198,10 +198,10 @@ private AlumnoData ad;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+    private void jbSalirAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirAlumnoActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jbSalirActionPerformed
+    }//GEN-LAST:event_jbSalirAlumnoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // TODO add your handling code here:
@@ -250,7 +250,7 @@ private AlumnoData ad;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
-    private javax.swing.JButton jbSalir;
+    private javax.swing.JButton jbSalirAlumno;
     private com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JRadioButton jrbActivo;
     private javax.swing.JRadioButton jrbNoActivo;

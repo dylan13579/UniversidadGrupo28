@@ -19,6 +19,10 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -30,7 +34,16 @@ public class Menu extends javax.swing.JFrame {
         jmNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jmiListado = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jmiCerrarP = new javax.swing.JMenuItem();
+
+        jMenu5.setText("File");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar2.add(jMenu6);
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -101,8 +114,17 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Salir");
-        jMenuBar1.add(jMenu5);
+        jMenu7.setText("Salir");
+
+        jmiCerrarP.setText("Cerrar");
+        jmiCerrarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCerrarPActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jmiCerrarP);
+
+        jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
 
@@ -170,6 +192,16 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(listado);
     }//GEN-LAST:event_jmiListadoActionPerformed
 
+    private void jmiCerrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarPActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioCerrar cerrar=new FormularioCerrar();
+        cerrar.setVisible(true);
+        escritorio.add(cerrar);
+        escritorio.moveToFront(cerrar);
+    }//GEN-LAST:event_jmiCerrarPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -212,11 +244,16 @@ public class Menu extends javax.swing.JFrame {
     javax.swing.JMenu jMenu3;
     javax.swing.JMenu jMenu4;
     javax.swing.JMenu jMenu5;
+    javax.swing.JMenu jMenu6;
+    javax.swing.JMenu jMenu7;
     javax.swing.JMenuBar jMenuBar1;
+    javax.swing.JMenuBar jMenuBar2;
     javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
     javax.swing.JMenuItem jMenuItem3;
+    javax.swing.JMenuItem jMenuItem4;
     javax.swing.JMenuItem jmNotas;
+    javax.swing.JMenuItem jmiCerrarP;
     javax.swing.JMenuItem jmiListado;
     // End of variables declaration//GEN-END:variables
 
