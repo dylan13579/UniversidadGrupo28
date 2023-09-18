@@ -27,6 +27,8 @@ public class FormularioCerrar extends javax.swing.JInternalFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jbCerrarP = new javax.swing.JButton();
 
+        setClosable(true);
+
         jbCerrarP.setText("Cerrar Programa");
         jbCerrarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
