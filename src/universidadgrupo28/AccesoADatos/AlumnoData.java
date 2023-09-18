@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JOptionPane;
 import universidadgrupo28.Entidades.Alumno;
 
@@ -73,7 +74,7 @@ public class AlumnoData {
      }
     
     
-      public void eliminarALumno(int id){
+      public void eliminarAlumno(int id){
         
         String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
         try {
@@ -92,6 +93,30 @@ public class AlumnoData {
         }
       }
     
+      public void eliminarAlumnoPorDni(int dni){
+          
+          String sql="DELETE FROM alumno WHERE dni = ?";
+          
+        try {
+            PreparedStatement ps =red.prepareStatement(sql);
+            
+             ps.setInt(1, dni);
+           int exito=ps.executeUpdate();
+           
+           if(exito==1){
+               
+               JOptionPane.showMessageDialog(null, "Se ha eliminado un alumno ");
+           }else{
+               
+                JOptionPane.showMessageDialog(null, "No se encontró ningún alumno con ese DNI.");
+           }
+            
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla  alumno ");
+        }
+      }          
+      
     
       public Alumno buscarAlumno(int id){
         
@@ -186,4 +211,6 @@ public class AlumnoData {
         
         return alumnos;
     }
+
+    
 }

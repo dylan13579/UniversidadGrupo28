@@ -6,6 +6,12 @@
 package universidadgrupo28.Vistas;
 
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
+
+
 import javax.swing.JOptionPane;
 import universidadgrupo28.AccesoADatos.AlumnoData;
 import universidadgrupo28.Entidades.*;
@@ -42,7 +48,6 @@ private AlumnoData ad;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TipoEstado = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -59,7 +64,6 @@ private AlumnoData ad;
         jbSalirAlumno = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jrbActivo = new javax.swing.JRadioButton();
-        jrbNoActivo = new javax.swing.JRadioButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -94,6 +98,11 @@ private AlumnoData ad;
         });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbSalirAlumno.setText("Salir");
         jbSalirAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -103,12 +112,13 @@ private AlumnoData ad;
         });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
-        TipoEstado.add(jrbActivo);
         jrbActivo.setText("Activo");
-
-        TipoEstado.add(jrbNoActivo);
-        jrbNoActivo.setText("No Activo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,10 +153,7 @@ private AlumnoData ad;
                                         .addComponent(jbBuscar))
                                     .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jrbActivo)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jrbNoActivo))
+                                        .addComponent(jrbActivo, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                                         .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING))))
                             .addGroup(layout.createSequentialGroup()
@@ -180,8 +187,7 @@ private AlumnoData ad;
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jrbActivo)
-                    .addComponent(jrbNoActivo))
+                    .addComponent(jrbActivo))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
@@ -212,7 +218,7 @@ private AlumnoData ad;
          jbNuevo.setEnabled(false);
          jbGuardar.setEnabled(true);
          jtDocumento.setText("");
-         
+
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
@@ -225,14 +231,19 @@ private AlumnoData ad;
                if(estu != null){
                     jtApellido.setText(estu.getApellido());
                     jtNombre.setText(estu.getNombre());
-                   
+                    jrbActivo.setSelected(estu.isEstado());
+                    jdcFecha.setDate(Date.valueOf(estu.getFechaNac()));
                     
                 activarCampos();
+                jbEliminar.setEnabled(true);
+                
                }else{
                    limpiar();
                    desactivarCampos();
+                   jbGuardar.setEnabled(false);
                    
                }
+                
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Debe ingresar el documneto");
             jtDocumento.requestFocus();
@@ -241,9 +252,75 @@ private AlumnoData ad;
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        Alumno alu=new Alumno();
+       try{
+        int dni=Integer.parseInt(jtDocumento.getText());
+        String apellido=jtApellido.getText();
+        String nombre=jtNombre.getText();
+        boolean estado=jrbActivo.isSelected();
+       LocalDate fechaNac = jdcFecha.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        
+        alu.setDni(dni);
+        alu.setApellido(apellido);
+        alu.setNombre(nombre);
+        alu.setEstado(estado);
+        alu.setFechaNac(fechaNac);
+        
+        ad.guardarAlumno(alu);
+         limpiar(); 
+         desactivarCampos();
+         jbNuevo.setEnabled(true);
+          jbGuardar.setEnabled(true);
+        
+          
+        }catch(NumberFormatException a){
+        JOptionPane.showMessageDialog(this, "No puede dejar campos vacios");
+            
+        }
+        
+        
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+        
+                  
+    try {
+
+        int dni = Integer.parseInt(jtDocumento.getText());
+        Alumno estu=ad.buscarAlumnoPorDni(dni);
+        if (estu !=null) {
+             
+            jtDocumento.setText(String.valueOf(estu.getDni()));
+            jtApellido.setText(estu.getApellido());
+            jtNombre.setText(estu.getNombre());
+            jrbActivo.setSelected(estu.isEstado());
+            jdcFecha.setDate(Date.valueOf(estu.getFechaNac()));
+            
+            
+            limpiar();
+            desactivarCampos();
+            
+           
+            ad.eliminarAlumnoPorDni(dni);
+        
+           
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontró ningún alumno con ese DNI.");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "DNI invalido");
+        limpiar();
+        desactivarCampos();
+        jbNuevo.setEnabled(true);
+    }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup TipoEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -257,7 +334,6 @@ private AlumnoData ad;
     private javax.swing.JButton jbSalirAlumno;
     private com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JRadioButton jrbActivo;
-    private javax.swing.JRadioButton jrbNoActivo;
     private javax.swing.JTextField jtApellido;
     private javax.swing.JTextField jtDocumento;
     private javax.swing.JTextField jtNombre;
@@ -267,7 +343,6 @@ private AlumnoData ad;
         jtApellido.setEnabled(false);
         jtNombre.setEnabled(false);
         jrbActivo.setEnabled(false);
-        jrbNoActivo.setEnabled(false);
         jdcFecha.setEnabled(false);
     }
     
@@ -276,7 +351,6 @@ private AlumnoData ad;
         jtApellido.setEnabled(true);
         jtNombre.setEnabled(true);
         jrbActivo.setEnabled(true);
-        jrbNoActivo.setEnabled(true);
         jdcFecha.setEnabled(true);
     }
     
@@ -284,7 +358,8 @@ private AlumnoData ad;
         jtDocumento.setText("");
         jtApellido.setText("");
         jtNombre.setText("");
-
+        jrbActivo.setSelected(false);
+        jdcFecha.setDate(null);
        
        
     }

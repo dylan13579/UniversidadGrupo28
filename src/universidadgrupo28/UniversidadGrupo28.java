@@ -23,7 +23,8 @@ public class UniversidadGrupo28 {
             //AlumnoData alu=new AlumnoData();
          //alu.guardarAlumno(estudiante);
          //alu.modificarAlumno(estudiante);
-               //alu.eliminarALumno(20);
+               //alu.eliminarAlumno(19);
+              // alu.eliminarAlumnoPorDni(85321);
                     //Alumno encontrado=alu.buscarAlumno(19);
                     //Alumno encontrado=alu.buscarAlumnoPorDni(45612398);
                     
@@ -78,9 +79,9 @@ public class UniversidadGrupo28 {
 
         //INCRIPCIONES DATA                 
 
-      AlumnoData ad=new AlumnoData();
-      MateriaData md=new MateriaData();
-      InscripcionData id=new InscripcionData();
+//      AlumnoData ad=new AlumnoData();
+//      MateriaData md=new MateriaData();
+//      InscripcionData id=new InscripcionData();
 
        //Alumno alum=ad.buscarAlumno(19);
        //Materia mate=md.buscarMateria(3);
@@ -131,12 +132,12 @@ public class UniversidadGrupo28 {
 //         }
            
 
-           for(Alumno estudi:id.obternerAlumnosPorMaterias(5)){
-             
-            System.out.println("ID de Alumno: " + estudi.getIdAlumno());
-               System.out.println("nombre = "+estudi.getApellido()+ " "+ estudi.getNombre());
-               System.out.println("-------");
-             
-           }
-    }
+//           for(Alumno estudi:id.obternerAlumnosPorMaterias(5)){
+//             
+//            System.out.println("ID de Alumno: " + estudi.getIdAlumno());
+//               System.out.println("nombre = "+estudi.getApellido()+ " "+ estudi.getNombre());
+//               System.out.println("-------");
+//             
+//           }
+   }
 }
