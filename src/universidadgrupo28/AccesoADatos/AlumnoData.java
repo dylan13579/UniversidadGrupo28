@@ -144,7 +144,7 @@ public class AlumnoData {
                 alumno.setEstado(true);
                 
             }else {
-                JOptionPane.showMessageDialog(null, "No existe ese alumno ese DNI");
+                JOptionPane.showMessageDialog(null, "No existe ese alumno con ese DNI");
             }
             ps.close();
             

@@ -222,13 +222,17 @@ private AlumnoData ad;
             
                int dni=Integer.parseInt(jtDocumento.getText());
                Alumno estu=ad.buscarAlumnoPorDni(dni);
-               
+               if(estu != null){
                     jtApellido.setText(estu.getApellido());
                     jtNombre.setText(estu.getNombre());
                    
                     
                 activarCampos();
-            
+               }else{
+                   limpiar();
+                   desactivarCampos();
+                   
+               }
         }catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Debe ingregesar el documneto");
             jtDocumento.requestFocus();
