@@ -234,7 +234,7 @@ private AlumnoData ad;
                    
                }
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Debe ingregesar el documneto");
+            JOptionPane.showMessageDialog(this, "Debe ingresar el documneto");
             jtDocumento.requestFocus();
             limpiar();
             desactivarCampos();
