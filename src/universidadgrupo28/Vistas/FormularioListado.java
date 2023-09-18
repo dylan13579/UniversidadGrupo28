@@ -43,6 +43,10 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         jtListadoMat = new javax.swing.JTable();
         jbSalirList = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setText("Listado de alumnos por Materia");
 
         jLabel2.setText("Seleccione una materia:");
