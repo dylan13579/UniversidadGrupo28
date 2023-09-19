@@ -54,8 +54,6 @@ private AlumnoData ad;
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jtDocumento = new javax.swing.JTextField();
-        jtApellido = new javax.swing.JTextField();
         jtNombre = new javax.swing.JTextField();
         jdcFecha = new com.toedter.calendar.JDateChooser();
         jbBuscar = new javax.swing.JButton();
@@ -64,6 +62,8 @@ private AlumnoData ad;
         jbSalirAlumno = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jrbActivo = new javax.swing.JRadioButton();
+        jtApellido = new javax.swing.JTextField();
+        jtDocumento = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -82,18 +82,6 @@ private AlumnoData ad;
         jLabel5.setText("Estado");
 
         jLabel6.setText("Fecha de Nacimiento");
-
-        jtDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtDocumentoActionPerformed(evt);
-            }
-        });
-
-        jtApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtApellidoActionPerformed(evt);
-            }
-        });
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_find_lupa_21889.png"))); // NOI18N
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -160,14 +148,14 @@ private AlumnoData ad;
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(jtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
                                         .addComponent(jbBuscar))
                                     .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jrbActivo)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jrbActivo, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                                        .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING))))
+                                        .addComponent(jtApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(196, 196, 196)
                                 .addComponent(jLabel1)))
@@ -188,11 +176,11 @@ private AlumnoData ad;
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(jbBuscar)))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,12 +234,12 @@ private AlumnoData ad;
                     jrbActivo.setSelected(estu.isEstado());
                     jdcFecha.setDate(Date.valueOf(estu.getFechaNac()));
                     
-                activarCampos();
-                jbEliminar.setEnabled(true);
+              activarCampos();
                 
                }else{
                    limpiar();
-                   desactivarCampos();
+                    activarCampos();
+                     desactivarCampos();
                    jbGuardar.setEnabled(false);
                    
                }
@@ -330,14 +318,6 @@ private AlumnoData ad;
         jbNuevo.setEnabled(true);
     }
     }//GEN-LAST:event_jbEliminarActionPerformed
-
-    private void jtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtApellidoActionPerformed
-
-    private void jtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

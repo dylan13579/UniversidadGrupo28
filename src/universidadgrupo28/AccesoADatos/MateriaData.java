@@ -89,6 +89,7 @@ public class MateriaData {
            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
     }
+   
     
     public Materia buscarMateria(int id){
         String sql="SELECT  nombre, año FROM materia WHERE idMateria = ? AND estado = 1 ";

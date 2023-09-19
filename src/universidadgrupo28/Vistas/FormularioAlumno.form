@@ -51,15 +51,15 @@
                               <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jtDocumento" min="-2" pref="178" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jtDocumento" min="-2" pref="160" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Component id="jbBuscar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jdcFecha" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                  <Component id="jrbActivo" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jrbActivo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jtApellido" alignment="0" pref="198" max="32767" attributes="0"/>
-                                      <Component id="jtNombre" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtApellido" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jtNombre" alignment="0" pref="198" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -93,12 +93,12 @@
                       <Component id="jbBuscar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtApellido" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -159,16 +159,6 @@
         <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtDocumento">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtDocumentoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jtApellido">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtApellidoActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="jtNombre">
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jdcFecha">
@@ -219,6 +209,10 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Activo"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jtApellido">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jtDocumento">
     </Component>
   </SubComponents>
 </Form>
