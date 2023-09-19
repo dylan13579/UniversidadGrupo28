@@ -22,8 +22,8 @@ private MateriaData md;
     public FormularioMateria() {
         md=new MateriaData();
         initComponents();
-        jbNuevaMat.setEnabled(true);
-        jbEliminarMat.setEnabled(true);
+        jbNuevaMat.setEnabled(false);
+        jbEliminarMat.setEnabled(false);
         
     }
 
@@ -41,15 +41,15 @@ private MateriaData md;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jtCodigoMat = new javax.swing.JTextField();
-        jtNombreMat = new javax.swing.JTextField();
-        jtAnio = new javax.swing.JTextField();
-        jrbEstado = new javax.swing.JRadioButton();
         jbNuevaMat = new javax.swing.JButton();
         jbEliminarMat = new javax.swing.JButton();
         jbGuardarMat = new javax.swing.JButton();
         jbSalirMateria = new javax.swing.JButton();
         jbBuscarMat = new javax.swing.JButton();
+        jtCodigoMat = new javax.swing.JTextField();
+        jtNombreMat = new javax.swing.JTextField();
+        jtAnio = new javax.swing.JTextField();
+        jrbEstado = new javax.swing.JRadioButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -66,26 +66,6 @@ private MateriaData md;
         jLabel4.setText("Año");
 
         jLabel5.setText("Estado");
-
-        jtCodigoMat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtCodigoMatActionPerformed(evt);
-            }
-        });
-
-        jtNombreMat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtNombreMatActionPerformed(evt);
-            }
-        });
-
-        jtAnio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtAnioActionPerformed(evt);
-            }
-        });
-
-        jrbEstado.setText("Activo");
 
         jbNuevaMat.setText("Nuevo");
         jbNuevaMat.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +102,8 @@ private MateriaData md;
             }
         });
 
+        jrbEstado.setText("Activo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,12 +122,13 @@ private MateriaData md;
                             .addComponent(jLabel5))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtNombreMat, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtCodigoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtNombreMat, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                    .addComponent(jtCodigoMat, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(18, 18, 18)
                                 .addComponent(jbBuscarMat))
+                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jrbEstado))))
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -155,7 +138,7 @@ private MateriaData md;
                 .addComponent(jbEliminarMat)
                 .addGap(18, 18, 18)
                 .addComponent(jbGuardarMat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jbSalirMateria)
                 .addGap(16, 16, 16))
         );
@@ -177,15 +160,15 @@ private MateriaData md;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtNombreMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jrbEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevaMat)
                     .addComponent(jbEliminarMat)
@@ -202,27 +185,14 @@ private MateriaData md;
         dispose();
     }//GEN-LAST:event_jbSalirMateriaActionPerformed
 
-    private void jtCodigoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoMatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtCodigoMatActionPerformed
-
-    private void jtNombreMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreMatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtNombreMatActionPerformed
-
-    private void jtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAnioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtAnioActionPerformed
-
     private void jbNuevaMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevaMatActionPerformed
         // TODO add your handling code here:
         activarCampos();
         limpiar();
         jtCodigoMat.requestFocus();
         jbEliminarMat.setEnabled(false);
-        jbNuevaMat.setEnabled(true);
+        jbNuevaMat.setEnabled(false);
         jbGuardarMat.setEnabled(true);
-        jtAnio.setEnabled(false);
         jtCodigoMat.setText("");
         
 
@@ -238,12 +208,13 @@ private MateriaData md;
                     jtAnio.setToolTipText(title);
                     jrbEstado.setSelected(mate.isEstado());
             
-                activarCampos();
-                jbEliminarMat.setEnabled(true);
+               
+              activarCampos();
+              jbEliminarMat.setEnabled(true);
                 }else{
                     limpiar();
                     desactivarCampos();
-                    jbGuardarMat.setEnabled(false);
+                jbGuardarMat.setEnabled(false);
                    
                 }       
             
@@ -263,14 +234,14 @@ private MateriaData md;
         try{
             int cod=Integer.parseInt(jtCodigoMat.getText());
             String nombre=jtNombreMat.getText();
-            String anio=jtAnio.getToolTipText();
+            int anio=jtAnio.getText().charAt(cod);
             boolean Estado=jrbEstado.isSelected();
             
             mat.setIdMateria(WIDTH);
             mat.setNombre(nombre);
             mat.setEstado(Estado);
-            
-            md.guaradarMateria(mat);
+            mat.setAnioMateria(anio);
+          
             limpiar();
             desactivarCampos();
             jbNuevaMat.setEnabled(true);
@@ -339,26 +310,23 @@ private MateriaData md;
         jtNombreMat.setEnabled(true);
         jtAnio.setEnabled(true);
         jrbEstado.setEnabled(true);
-        jbNuevaMat.setEnabled(true);
-        jbEliminarMat.setEnabled(true);
-        jbGuardarMat.setEnabled(true);
+
     }
 
     private void limpiar() {
-        jtCodigoMat.setToolTipText(title);
+        jtCodigoMat.setText("");
         jtNombreMat.setText("");
         jtAnio.setText("");
         jrbEstado.setSelected(false);
     }
 
     private void desactivarCampos() {
-        jtCodigoMat.setEnabled(false);
+       
         jtNombreMat.setEnabled(false);
         jtAnio.setEnabled(false);
         jrbEstado.setEnabled(false);
-        jbNuevaMat.setEnabled(false);  
-        jbEliminarMat.setEnabled(false);
-        jbGuardarMat.setEnabled(false);        
+        
+             
         
     }    
 }
