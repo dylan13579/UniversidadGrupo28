@@ -203,20 +203,24 @@ private MateriaData md;
         // TODO add your handling code here:
         try{
                 int cod=Integer.parseInt(jtCodigo.getText());
-                Materia mate=md.buscarMateriaPorAnio(cod);
-                
+                Materia mate=md.buscarMateria(cod);
+             
                 if(mate!=null){
-                    jtNombre.setText(mate.getNombre());
-                    
-                    jrbEstado.setSelected(mate.isEstado());
+                  
+                jtNombre.setText(mate.getNombre());
+                int anio = mate.getAnioMateria();
+                jtAnio.setText(String.valueOf(anio));
+
+                jrbEstado.setSelected(mate.isEstado());
        
              activarCampos();
-              
+              jbEliminarMat.setEnabled(true);
                 }else{
                     limpiar();
                     activarCampos();
                    desactivarCampos();
                     jbGuardarMat.setEnabled(false);
+                    
                    
                 }       
             
@@ -241,13 +245,15 @@ private MateriaData md;
             
             int cod=Integer.parseInt(jtCodigo.getText());
             String nombre=jtNombre.getText();
-            int anio=jtAnio.getText().charAt(cod);
-            boolean Estado=jrbEstado.isSelected();
+            int anio=Integer.parseInt(jtAnio.getText());
+            boolean estado=jrbEstado.isSelected();
             
             mat.setIdMateria(cod);
             mat.setNombre(nombre);
-            mat.setEstado(Estado);
+            mat.setEstado(estado);
             mat.setAnioMateria(anio);
+            
+            md.guaradarMateria(mat);
           
             limpiar();
             desactivarCampos();

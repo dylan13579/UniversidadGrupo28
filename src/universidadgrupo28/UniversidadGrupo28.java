@@ -57,12 +57,13 @@ public class UniversidadGrupo28 {
                //estudios.elimnarMateria(11);
                     //Materia encuentra=estudios.buscarMateria(3);
                     //Materia encuentra=estudios.buscarMateriaPorAnio(2);
-                    //if(encuentra!=null){
-                    //System.out.println("nombre = "+encuentra.getNombre());
-                    //System.out.println("año = "+encuentra.getAnioMateria());
-                       
-                    
-                    //}
+//                    if(encuentra!=null){
+//                    System.out.println("nombre = "+encuentra.getNombre());
+//                    System.out.println("año = "+encuentra.getAnioMateria());
+//                        System.out.println("estado = "+encuentra.isEstado());
+//                       
+//                    
+//                    }
          
 //      MateriaData estudios=new MateriaData(); 
 //      for(Materia materia:estudios.listarMateria()){

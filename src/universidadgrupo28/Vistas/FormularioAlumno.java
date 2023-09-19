@@ -235,7 +235,7 @@ private AlumnoData ad;
                     jdcFecha.setDate(Date.valueOf(estu.getFechaNac()));
                     
               activarCampos();
-                
+                jbEliminar.setEnabled(true);
                }else{
                    limpiar();
                     activarCampos();

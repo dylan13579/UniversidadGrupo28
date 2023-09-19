@@ -106,6 +106,7 @@ public class MateriaData {
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));
+                materia.setEstado(true);
      
             }else {
                 JOptionPane.showMessageDialog(null, "No exixte la materia con ese ID");
