@@ -16,11 +16,8 @@ import universidadgrupo28.Entidades.Materia;
 
 
 public class MateriaData {
-    
     private Connection red = null;
     private String sql;
- 
-    
     public MateriaData(){
         red = Conexion.getConexion();
         
@@ -60,14 +57,10 @@ public class MateriaData {
 
             PreparedStatement ps = red.prepareStatement(sql);
             
-            
-            ps.setString(1, materia.getNombre());
-//            ps.setInt(2, materia.getAnioMateria());
-//            ps.setBoolean(3, true);
-            ps.setInt(2, materia.getIdMateria());
-           
-            
-             
+            ps.setInt(1, materia.getIdMateria());
+            ps.setString(2, materia.getNombre());
+            ps.setInt(3, materia.getAnioMateria());
+            ps.setBoolean(4, true);                                
             int modi = ps.executeUpdate();
             
             if(modi==1){

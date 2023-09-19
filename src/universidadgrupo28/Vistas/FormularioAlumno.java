@@ -83,6 +83,18 @@ private AlumnoData ad;
 
         jLabel6.setText("Fecha de Nacimiento");
 
+        jtDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDocumentoActionPerformed(evt);
+            }
+        });
+
+        jtApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtApellidoActionPerformed(evt);
+            }
+        });
+
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_find_lupa_21889.png"))); // NOI18N
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,7 +256,7 @@ private AlumnoData ad;
                    
                }
                 
-        }catch(NumberFormatException e){
+        } catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Debe ingresar el documneto");
             jtDocumento.requestFocus();
             limpiar();
@@ -318,6 +330,14 @@ private AlumnoData ad;
         jbNuevo.setEnabled(true);
     }
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtApellidoActionPerformed
+
+    private void jtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,17 +5,26 @@
  */
 package universidadgrupo28.Vistas;
 
+import javax.swing.JOptionPane;
+import universidadgrupo28.AccesoADatos.MateriaData;
+import universidadgrupo28.Entidades.Materia;
+
 /**
  *
  * @author myria
  */
 public class FormularioMateria extends javax.swing.JInternalFrame {
+private MateriaData md;
 
     /**
      * Creates new form FormularioMateria
      */
     public FormularioMateria() {
+        md=new MateriaData();
         initComponents();
+        jbNuevaMat.setEnabled(true);
+        jbEliminarMat.setEnabled(true);
+        
     }
 
     /**
@@ -32,15 +41,15 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jtCodigoMat = new javax.swing.JTextField();
+        jtNombreMat = new javax.swing.JTextField();
+        jtAnio = new javax.swing.JTextField();
+        jrbEstado = new javax.swing.JRadioButton();
+        jbNuevaMat = new javax.swing.JButton();
+        jbEliminarMat = new javax.swing.JButton();
+        jbGuardarMat = new javax.swing.JButton();
         jbSalirMateria = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jbBuscarMat = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -58,11 +67,46 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado");
 
-        jButton1.setText("Nuevo");
+        jtCodigoMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCodigoMatActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Eliminar");
+        jtNombreMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreMatActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Guardar");
+        jtAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtAnioActionPerformed(evt);
+            }
+        });
+
+        jrbEstado.setText("Activo");
+
+        jbNuevaMat.setText("Nuevo");
+        jbNuevaMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevaMatActionPerformed(evt);
+            }
+        });
+
+        jbEliminarMat.setText("Eliminar");
+        jbEliminarMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarMatActionPerformed(evt);
+            }
+        });
+
+        jbGuardarMat.setText("Guardar");
+        jbGuardarMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarMatActionPerformed(evt);
+            }
+        });
 
         jbSalirMateria.setText("Salir");
         jbSalirMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +115,12 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_find_lupa_21889.png"))); // NOI18N
+        jbBuscarMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search_find_lupa_21889.png"))); // NOI18N
+        jbBuscarMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarMatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,21 +140,21 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5))
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtNombreMat, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtCodigoMat, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)
-                                .addComponent(jButton5))
-                            .addComponent(jRadioButton1))))
+                                .addComponent(jbBuscarMat))
+                            .addComponent(jrbEstado))))
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jButton1)
+                .addComponent(jbNuevaMat)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jbEliminarMat)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jbGuardarMat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbSalirMateria)
                 .addGap(16, 16, 16))
@@ -120,27 +169,27 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtCodigoMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jButton5)))
+                        .addComponent(jbBuscarMat)))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtNombreMat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                    .addComponent(jrbEstado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
+                    .addComponent(jbNuevaMat)
+                    .addComponent(jbEliminarMat)
+                    .addComponent(jbGuardarMat)
                     .addComponent(jbSalirMateria))
                 .addGap(47, 47, 47))
         );
@@ -153,21 +202,164 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirMateriaActionPerformed
 
+    private void jtCodigoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCodigoMatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCodigoMatActionPerformed
+
+    private void jtNombreMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreMatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNombreMatActionPerformed
+
+    private void jtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAnioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtAnioActionPerformed
+
+    private void jbNuevaMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevaMatActionPerformed
+        // TODO add your handling code here:
+        activarCampos();
+        limpiar();
+        jtCodigoMat.requestFocus();
+        jbEliminarMat.setEnabled(false);
+        jbNuevaMat.setEnabled(true);
+        jbGuardarMat.setEnabled(true);
+        jtAnio.setEnabled(false);
+        jtCodigoMat.setText("");
+        
+
+    }//GEN-LAST:event_jbNuevaMatActionPerformed
+
+    private void jbBuscarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarMatActionPerformed
+        // TODO add your handling code here:
+        try{
+                int cod=Integer.parseInt(jtCodigoMat.getText());
+                Materia mate=md.buscarMateriaPorAnio(cod);
+                if(mate!=null){
+                    jtNombreMat.setText(mate.getNombre());
+                    jtAnio.setToolTipText(title);
+                    jrbEstado.setSelected(mate.isEstado());
+            
+                activarCampos();
+                jbEliminarMat.setEnabled(true);
+                }else{
+                    limpiar();
+                    desactivarCampos();
+                    jbGuardarMat.setEnabled(false);
+                   
+                }       
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog (this, "Debe ingresar un numero");
+            jtCodigoMat.requestFocus();
+            limpiar();
+            desactivarCampos();
+            
+        }
+
+    }//GEN-LAST:event_jbBuscarMatActionPerformed
+
+    private void jbGuardarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarMatActionPerformed
+        // TODO add your handling code here:
+        Materia mat=new Materia();
+        try{
+            int cod=Integer.parseInt(jtCodigoMat.getText());
+            String nombre=jtNombreMat.getText();
+            String anio=jtAnio.getToolTipText();
+            boolean Estado=jrbEstado.isSelected();
+            
+            mat.setIdMateria(WIDTH);
+            mat.setNombre(nombre);
+            mat.setEstado(Estado);
+            
+            md.guaradarMateria(mat);
+            limpiar();
+            desactivarCampos();
+            jbNuevaMat.setEnabled(true);
+            jbGuardarMat.setEnabled(true);
+            
+        }catch(NumberFormatException a){
+            JOptionPane.showMessageDialog (this, "No puede dejar campos vacios");
+                        
+        }
+        
+    }//GEN-LAST:event_jbGuardarMatActionPerformed
+
+    private void jbEliminarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarMatActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            
+            int cod=Integer.parseInt(jtCodigoMat.getText());
+            Materia mate=md.buscarMateriaPorAnio(cod);
+            if(mate !=null){
+                
+                jtCodigoMat.setText(String.valueOf(mate.getAnioMateria()));
+                jtNombreMat.setText(mate.getNombre());
+                jtAnio.setToolTipText(title);
+                jrbEstado.setSelected(mate.isEstado());
+                
+                limpiar();
+                desactivarCampos();
+                
+                md.elimnarMateria(cod);
+            }else{
+                JOptionPane.showMessageDialog (null, "No esa materia");
+            
+            }
+        }catch(NumberFormatException e) {
+            JOptionPane.showMessageDialog (this, "Codigo invalido");
+            limpiar();
+            desactivarCampos();
+            jbNuevaMat.setEnabled(true);
+            }
+        
+        
+
+    }//GEN-LAST:event_jbEliminarMatActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton jbBuscarMat;
+    private javax.swing.JButton jbEliminarMat;
+    private javax.swing.JButton jbGuardarMat;
+    private javax.swing.JButton jbNuevaMat;
     private javax.swing.JButton jbSalirMateria;
+    private javax.swing.JRadioButton jrbEstado;
+    private javax.swing.JTextField jtAnio;
+    private javax.swing.JTextField jtCodigoMat;
+    private javax.swing.JTextField jtNombreMat;
     // End of variables declaration//GEN-END:variables
+
+    private void activarCampos() {
+        jtCodigoMat.setEnabled(true);
+        jtNombreMat.setEnabled(true);
+        jtAnio.setEnabled(true);
+        jrbEstado.setEnabled(true);
+        jbNuevaMat.setEnabled(true);
+        jbEliminarMat.setEnabled(true);
+        jbGuardarMat.setEnabled(true);
+    }
+
+    private void limpiar() {
+        jtCodigoMat.setToolTipText(title);
+        jtNombreMat.setText("");
+        jtAnio.setText("");
+        jrbEstado.setSelected(false);
+    }
+
+    private void desactivarCampos() {
+        jtCodigoMat.setEnabled(false);
+        jtNombreMat.setEnabled(false);
+        jtAnio.setEnabled(false);
+        jrbEstado.setEnabled(false);
+        jbNuevaMat.setEnabled(false);  
+        jbEliminarMat.setEnabled(false);
+        jbGuardarMat.setEnabled(false);        
+        
+    }    
 }
+
