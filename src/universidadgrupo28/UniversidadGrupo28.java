@@ -82,7 +82,7 @@ public class UniversidadGrupo28 {
 
 //      AlumnoData ad=new AlumnoData();
 //      MateriaData md=new MateriaData();
-//      InscripcionData id=new InscripcionData();
+      InscripcionData id=new InscripcionData();
 
        //Alumno alum=ad.buscarAlumno(19);
        //Materia mate=md.buscarMateria(3);
@@ -111,13 +111,13 @@ public class UniversidadGrupo28 {
 //        }
 
 
-//          for(Materia materias:id.obternerMateriasCursadas(2)){
-//              System.out.println("nombre = "+materias.getNombre());
-//              System.out.println("año = "+materias.getAnioMateria());
-//              
-//              System.out.println("-------");
-//                   
-//          }
+          for(Materia materias:id.obternerMateriasCursadas(2)){
+              System.out.println("nombre = "+materias.getNombre());
+              System.out.println("año = "+materias.getAnioMateria());
+              
+              System.out.println("-------");
+                   
+          }
 
 
 

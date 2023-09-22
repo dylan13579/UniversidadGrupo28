@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/AccesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/Vistas/FormularioAlumno.java</file>
             <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/AccesoADatos/AlumnoData.java</file>
-            <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/Entidades/Alumno.java</file>
+            <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/UniversidadGrupo28.java</file>
+            <file>file:/C:/Users/myria/Documents/NetBeansProjects/UniversidadGrupo28/src/universidadgrupo28/Vistas/FormularioListado.java</file>
         </group>
     </open-files>
 </project-private>

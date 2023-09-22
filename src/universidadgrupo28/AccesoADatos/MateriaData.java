@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -150,9 +152,9 @@ public class MateriaData {
           return materia;
           
     }
-    
+      
     public List<Materia> listarMateria(){
-        String sql="SELECT idMAteria, nombre, año FROM materia WHERE estado = 1";
+        String sql="SELECT idMateria, nombre, año FROM materia WHERE estado = 1";
         
          ArrayList<Materia> materias= new ArrayList<>();
          
@@ -177,7 +179,7 @@ public class MateriaData {
          return materias;
     }
     
-
+    
 }
         
 
