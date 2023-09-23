@@ -1,15 +1,21 @@
-    package universidadgrupo28.Vistas;
-
-
+package universidadgrupo28.Vistas;
 
 
 public class Menu extends javax.swing.JFrame {
-
-  
+    
+   
+    
+   
+    
     public Menu() {
         initComponents();
+        
+        
         this.setLocationRelativeTo(null); //monstrarel menu en el centro
-    }
+        
+       
+}
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +42,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jmiListado = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jmiCerrarP = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenu5.setText("File");
         jMenuBar2.add(jMenu5);
@@ -53,12 +59,14 @@ public class Menu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGap(0, 711, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(300, 35));
 
         jMenu1.setText("Alumno");
 
@@ -118,13 +126,13 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu7.setText("Salir");
 
-        jmiCerrarP.setText("Cerrar");
-        jmiCerrarP.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem5.setText("Cerrar Menu");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiCerrarPActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu7.add(jmiCerrarP);
+        jMenu7.add(jMenuItem5);
 
         jMenuBar1.add(jMenu7);
 
@@ -134,11 +142,15 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -152,6 +164,8 @@ public class Menu extends javax.swing.JFrame {
         estudiante.setVisible(true);
         escritorio.add(estudiante);
         escritorio.moveToFront(estudiante);
+        
+      
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -194,15 +208,18 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(listado);
     }//GEN-LAST:event_jmiListadoActionPerformed
 
-    private void jmiCerrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCerrarPActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+        
         escritorio.removeAll();
         escritorio.repaint();
-        FormularioCerrar cerrar=new FormularioCerrar();
-        cerrar.setVisible(true);
-        escritorio.add(cerrar);
-        escritorio.moveToFront(cerrar);
-    }//GEN-LAST:event_jmiCerrarPActionPerformed
+        CerrarMenu close=new CerrarMenu();
+        close.setVisible(true);
+        escritorio.add(close);
+        escritorio.moveToFront(close);
+        
+         this.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,8 +271,8 @@ public class Menu extends javax.swing.JFrame {
     javax.swing.JMenuItem jMenuItem2;
     javax.swing.JMenuItem jMenuItem3;
     javax.swing.JMenuItem jMenuItem4;
+    javax.swing.JMenuItem jMenuItem5;
     javax.swing.JMenuItem jmNotas;
-    javax.swing.JMenuItem jmiCerrarP;
     javax.swing.JMenuItem jmiListado;
     // End of variables declaration//GEN-END:variables
 

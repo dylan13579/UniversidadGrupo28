@@ -111,13 +111,14 @@ public class UniversidadGrupo28 {
 //        }
 
 
-          for(Materia materias:id.obternerMateriasCursadas(2)){
-              System.out.println("nombre = "+materias.getNombre());
-              System.out.println("año = "+materias.getAnioMateria());
-              
-              System.out.println("-------");
-                   
-          }
+//          for(Materia materias:id.obternerMateriasCursadas(2)){
+//              
+//           
+//              System.out.println("id = "+materias.getIdMateria());
+//              System.out.println("nombre = "+materias.getNombre());
+//
+//              System.out.println("-------");                
+//         }
 
 
 

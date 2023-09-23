@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 import universidadgrupo28.Entidades.Alumno;
@@ -213,9 +215,9 @@ public class InscripcionData {
        return materias;
     }
     
-    public ArrayList<Alumno> obternerAlumnosPorMaterias(int idMateria){
+    public List<Alumno> obternerAlumnosPorMaterias(int idMateria){
         
-        ArrayList<Alumno> alumnosMateria=new ArrayList<>();
+        List<Alumno> alumnosMateria=new ArrayList<>();
         
         String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado FROM inscripcion i,alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
         
@@ -227,6 +229,7 @@ public class InscripcionData {
                
                Alumno alumno=new Alumno();
                alumno.setIdAlumno(rs.getInt("idAlumno"));
+               alumno.setDni(rs.getInt("dni"));
                alumno.setApellido(rs.getString("apellido"));
                alumno.setNombre(rs.getString("nombre"));
                alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
@@ -241,6 +244,9 @@ public class InscripcionData {
        }
        return alumnosMateria;
     }
+    
+    
+     
 }
     
        
