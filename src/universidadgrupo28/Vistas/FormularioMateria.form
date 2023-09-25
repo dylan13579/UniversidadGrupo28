@@ -100,12 +100,14 @@
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="52" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbNuevo" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="jbEliminar" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="jbGuardar" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="jbSalir" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jbModificar" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jbNuevo" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jbEliminar" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jbGuardar" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="jbSalir" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
           </Group>
