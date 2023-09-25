@@ -180,7 +180,7 @@ public class AlumnoData {
         
         String sql="SELECT idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE estado = 1";
         
-        List<Alumno> alumnos= new ArrayList<>();
+        ArrayList<Alumno> alumnos= new ArrayList<>();
         try {
             PreparedStatement ps=red.prepareStatement(sql);
             

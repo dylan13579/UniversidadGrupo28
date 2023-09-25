@@ -142,21 +142,26 @@ private DefaultTableModel modelo=new DefaultTableModel() {
 
     private void jcbComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbComboActionPerformed
         // TODO add your handling code here:
-        
-     Materia mate = (Materia) jcbCombo.getSelectedItem();
-
-    if (mate != null) {
-        DefaultTableModel modelo = (DefaultTableModel) jtListarTabla.getModel();
-        
-        modelo.setRowCount(0); // Limpiar la tabla completamente
-        
-        List<Alumno> inscripciones = id.obternerAlumnosPorMaterias(mate.getIdMateria());
-      
-        for (Alumno inscripcion : inscripciones) {
-            modelo.addRow(new Object[]{inscripcion.getIdAlumno(),inscripcion.getDni(),inscripcion.getApellido(),inscripcion.getNombre()});
-        }
-    }
-    
+        // Obtén la materia seleccionada en el JComboBox
+//     Materia mate = (Materia) jcbCombo.getSelectedItem();
+//
+//    if (mate != null) {
+//        // Llama al método para obtener la lista de alumnos para la materia seleccionada
+//        List<Alumno> alumnosMateria = id.obternerAlumnosPorMaterias(mate.getIdMateria());
+//
+//        // Actualiza la tabla con los datos de los alumnos
+//        DefaultTableModel modelo = (DefaultTableModel) jtListarTabla.getModel();
+//        modelo.setRowCount(0); // Limpia la tabla antes de agregar nuevos datos
+//
+//        for (Alumno alumno : alumnosMateria) {
+//            modelo.addRow(new Object[]{
+//                alumno.getIdAlumno(),
+//                alumno.getDni(),
+//                alumno.getApellido(),
+//                alumno.getNombre()
+//            });
+//        }
+//    }
     }//GEN-LAST:event_jcbComboActionPerformed
 
 
@@ -174,25 +179,10 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         modelo.addColumn("Apellido");
         modelo.addColumn("Nombre");
         jtListarTabla.setModel(modelo);
-    
+        
+         Materia mate = (Materia) jcbCombo.getSelectedItem();
+//
+
     }
-//    
-//    private void llenarTabla(){
-//        
-//       List<Alumno> estudiante = ad.listarAlumnos();
-//  
-//       
-//        for (Alumno alumno : estudiante){
-//            System.out.println(alumno.getNombre());
-//            
-//           modelo.addRow(new Object[]{alumno.getIdAlumno(), alumno.getNombre()});
-//           
-// 
-//        }
-//    }
     
-   
-    
-    
-   
 }

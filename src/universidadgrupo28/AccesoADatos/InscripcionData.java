@@ -106,7 +106,7 @@ public class InscripcionData {
     
     public List<Inscripciones> obtenerIncripcion(){
      
-          ArrayList<Inscripciones> cursada = new ArrayList<>();
+          List<Inscripciones> cursada = new ArrayList<>();
     String sql = "SELECT * FROM inscripcion";
     
     try {
@@ -169,65 +169,59 @@ public class InscripcionData {
     
     public List<Materia> obternerMateriasCursadas(int idAlumno){
         
-        ArrayList<Materia> materias=new ArrayList<>();
-        
-        String sql="SELECT inscripcion.idMateria, nombre, año FROM inscripcion,"
-                + " materia WHERE inscripcion.idMateria = materia.idMateria"
-                + " AND inscripcion.idAlumno = ?;";
-        
-        
-       try {
-           PreparedStatement ps=red.prepareStatement(sql);
-           ps.setInt(1, idAlumno);
-           ResultSet rs=ps.executeQuery();
-           
-            while(rs.next()){
-                Materia materia=new Materia();
+       List<Materia> materias = new ArrayList<>();
+
+    String sql = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion,"
+            + " materia WHERE inscripcion.idMateria = materia.idMateria "
+            + " AND inscripcion.idAlumno = ?;";
+
+    try (PreparedStatement ps = red.prepareStatement(sql)) {
+        ps.setInt(1, idAlumno);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));
-                
+
                 materias.add(materia);
             }
-            ps.close();
-           
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
-       }
-       return materias;
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+    return materias;
     }
     
     public List<Materia> obternerMateriasNoCursadas(int idAlumno){
         
-        ArrayList<Materia> materias=new ArrayList<>();
-        
-        String sql="SELECT * FROM materia WHERE estado = 1 AND idMateria not in"
-                + "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
-        
-         try {
-           PreparedStatement ps=red.prepareStatement(sql);
-           ps.setInt(1, idAlumno);
-           ResultSet rs=ps.executeQuery();
-           
-            while(rs.next()){
-                Materia materia=new Materia();
+        List<Materia> materias = new ArrayList<>();
+    String sql = "SELECT * FROM materia WHERE estado = 1 AND idMateria NOT IN " +
+                 "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+
+    try (PreparedStatement ps = red.prepareStatement(sql)) {
+        ps.setInt(1, idAlumno);
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));
-                
                 materias.add(materia);
             }
-            ps.close();
-           
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
-       }
-       return materias;
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+
+    return materias;
     }
     
     public List<Alumno> obternerAlumnosPorMaterias(int idMateria){
         
-        List<Alumno> alumnosMateria=new ArrayList<>();
+        ArrayList<Alumno> alumnosMateria=new ArrayList<>();
         
         String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado FROM inscripcion i,alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
         
