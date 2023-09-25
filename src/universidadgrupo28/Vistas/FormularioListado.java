@@ -142,22 +142,25 @@ private DefaultTableModel modelo=new DefaultTableModel() {
 
     private void jcbComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbComboActionPerformed
         // TODO add your handling code here:
-        
-        
-       Materia mate = (Materia) jcbCombo.getSelectedItem();
-       
-        if(mate != null){
-            DefaultTableModel it = (DefaultTableModel) jtListarTabla.getModel();
-            
-        List<Alumno> estudiante = id.obternerAlumnosPorMaterias(mate.getIdMateria());
-      
-        for (Alumno alumno : estudiante) {
-            
-         it.setRowCount(0);
-            
-            it.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
-        }
-      }
+//        
+//        
+//       Materia mate = (Materia) jcbCombo.getSelectedItem();
+//       
+//       
+//        if(mate != null){
+//            DefaultTableModel modelo = (DefaultTableModel) jtListarTabla.getModel();
+//            
+//        List<Inscripciones> estudiante = id.obtenerIncripcion();
+//      
+//        for (Inscripciones alumno : estudiante) {
+//            
+//            Materia mat = md.buscarMateria(alumno);
+//            System.out.println(alumno.getAlumno());
+//            
+//            
+////            it.addRow(new Object[]{alumno.getIdInscripcion()});
+//        }
+//      }
     }//GEN-LAST:event_jcbComboActionPerformed
 
 

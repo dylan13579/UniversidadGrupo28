@@ -134,8 +134,7 @@ public class AlumnoData {
                 alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(true);
                 
-            }else {
-                JOptionPane.showMessageDialog(null, "No existe ese alumno con ese ID");
+           
             }
             ps.close();
             

@@ -7,21 +7,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 import universidadgrupo28.Entidades.Alumno;
+
 import universidadgrupo28.Entidades.Inscripciones;
 import universidadgrupo28.Entidades.Materia;
+
 
 
 
 public class InscripcionData {
     
    private Connection red = null;
-   private MateriaData md=new MateriaData();
-   private AlumnoData ad=new AlumnoData();
+ private  AlumnoData ad=new AlumnoData();
+ private MateriaData md=new MateriaData();
+  
    
    
    public InscripcionData(){
@@ -29,6 +31,8 @@ public class InscripcionData {
        
        this.red=Conexion.getConexion();
        
+      
+    
    }
   
   public void guardarInscripcion(Inscripciones insc){
@@ -102,30 +106,36 @@ public class InscripcionData {
     
     public List<Inscripciones> obtenerIncripcion(){
      
-        ArrayList<Inscripciones> obtener=new ArrayList<>();
-        
-        String sql="SELECT * FROM inscripcion";
-        
-       try {
-           PreparedStatement ps=red.prepareStatement(sql);
-           ResultSet rs=ps.executeQuery();
-           
-           while(rs.next()){
-               Inscripciones ins=new Inscripciones();
-               ins.setIdInscripcion(rs.getInt("idInscripcion"));
-               Alumno alu=ad.buscarAlumno(rs.getInt("idAlumno"));
-               Materia met=md.buscarMateria(rs.getInt("idMateria"));
-               ins.setAlumno(alu);
-               ins.setMateria(met);
-               ins.setNota(rs.getDouble("nota"));
-               
-               obtener.add(ins);
-           }
-           ps.close();
-       } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
-       }
-       return obtener;
+          ArrayList<Inscripciones> cursada = new ArrayList<>();
+    String sql = "SELECT * FROM inscripcion";
+    
+    try {
+       
+        PreparedStatement ps = red.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Inscripciones ins = new Inscripciones();
+            ins.setIdInscripcion(rs.getInt("idInscripcion"));
+
+            int idAlumno = rs.getInt("idAlumno");
+            int idMateria = rs.getInt("idMateria");
+            
+                Alumno est = ad.buscarAlumno(idAlumno);
+                ins.setAlumno(est);
+                Materia materi = md.buscarMateria(idMateria);
+                ins.setMateria(materi);
+            
+            ins.setNota(rs.getDouble("nota"));
+            cursada.add(ins);
+        }
+
+        ps.close(); 
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion"+ex.getMessage());
+    }
+
+    return cursada;
     }
     
     public List<Inscripciones> obtenerIncripcionPorAlumno(int idAlumno){
