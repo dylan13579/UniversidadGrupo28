@@ -31,7 +31,7 @@ public class Conexion {
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, "Error al cargar DRIVER ");
             } catch (SQLException q) {
-                JOptionPane.showMessageDialog(null, "Eror no se pudo conectar al DRIVER");
+                JOptionPane.showMessageDialog(null, "Error no se pudo conectar al DRIVER");
             }
         }
             return connection;
