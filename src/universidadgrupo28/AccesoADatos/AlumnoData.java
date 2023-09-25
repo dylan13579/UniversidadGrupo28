@@ -76,7 +76,7 @@ public class AlumnoData {
     
       public void eliminarAlumno(int id){
         
-        String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+        String sql="UPDATE alumno SET estado = 0 WHERE idAlumno = ? ";
         try {
             PreparedStatement ps =red.prepareStatement(sql);
             
@@ -95,22 +95,19 @@ public class AlumnoData {
     
       public void eliminarAlumnoPorDni(int dni){
           
-          String sql="DELETE FROM alumno WHERE dni = ?";
+          String sql="UPDATE alumno SET estado = 0 WHERE dni = ?";
           
-        try {
+          
+        try{
             PreparedStatement ps =red.prepareStatement(sql);
             
-             ps.setInt(1, dni);
+            ps.setInt(1,dni);
            int exito=ps.executeUpdate();
            
            if(exito==1){
                
                JOptionPane.showMessageDialog(null, "Se ha eliminado un alumno ");
-           }else{
-               
-                JOptionPane.showMessageDialog(null, "No se encontró ningún alumno con ese DNI.");
            }
-            
             
         } catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, "Error al acceder a la tabla  alumno ");

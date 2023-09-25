@@ -1,7 +1,19 @@
 package universidadgrupo28.Vistas;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
+
+
+
+
 
 public class Menu extends javax.swing.JFrame {
+    
+  
+    
     
    
     
@@ -9,11 +21,8 @@ public class Menu extends javax.swing.JFrame {
     
     public Menu() {
         initComponents();
-        
-        
         this.setLocationRelativeTo(null); //monstrarel menu en el centro
-        
-       
+      
 }
    
 
@@ -26,31 +35,22 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        escritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono=new ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/timthumb.jpg"));
+        Image miFondo=icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(miFondo,0,0,getWidth(),getHeight(),this);
+            }
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jmNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jmiListado = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
-
-        jMenu5.setText("File");
-        jMenuBar2.add(jMenu5);
-
-        jMenu6.setText("Edit");
-        jMenuBar2.add(jMenu6);
-
-        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad de la Punta - ULP");
@@ -63,13 +63,15 @@ public class Menu extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(300, 35));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(300, 50));
 
-        jMenu1.setText("Alumno");
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/knowledge_student_book_learning_school_education_graduation_icon_226266 (1).png"))); // NOI18N
+        jMenu1.setPreferredSize(new java.awt.Dimension(70, 21));
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/addressbook_36282.png"))); // NOI18N
         jMenuItem1.setText("Formulario de Alumno");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,8 +82,9 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Materia");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/62863books_109231.png"))); // NOI18N
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/book_21469.png"))); // NOI18N
         jMenuItem2.setText("Formulario de Materia");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,40 +95,15 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Administracion");
-
-        jMenuItem3.setText("Manejo de inscripciones");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem3);
-
-        jmNotas.setText("Manipulacion de notas");
-        jmNotas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmNotasActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jmNotas);
-
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/notes_pencil_913.png"))); // NOI18N
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Consultas");
-
-        jmiListado.setText("Alumnos por Materia");
-        jmiListado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiListadoActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jmiListado);
-
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/document_search_magnifying_glass_icon_187075.png"))); // NOI18N
         jMenuBar1.add(jMenu4);
 
-        jMenu7.setText("Salir");
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/log_logout_door_1563.png"))); // NOI18N
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/off_logout_17916.png"))); // NOI18N
         jMenuItem5.setText("Cerrar Menu");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,30 +120,38 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
+        
         escritorio.removeAll();
         escritorio.repaint();
-        FormularioAlumno estudiante=new FormularioAlumno();
-        estudiante.setVisible(true);
-        escritorio.add(estudiante);
-        escritorio.moveToFront(estudiante);
+        FormularioCerrar close=new FormularioCerrar();
+        close.setVisible(true);
+        escritorio.add(close);
+        escritorio.moveToFront(close);
         
-      
+         this.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioAlumno alumno=new FormularioAlumno();
+        alumno.setVisible(true);
+        alumno.getContentPane().setBackground(new Color(65, 105, 225));
+        escritorio.add(alumno);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -174,52 +160,9 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioMateria materia=new FormularioMateria();
         materia.setVisible(true);
+        materia.getContentPane().setBackground(new Color(60, 179, 113));
         escritorio.add(materia);
-        escritorio.moveToFront(materia);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioInscripcion ins=new FormularioInscripcion();
-        ins.setVisible(true);
-        escritorio.add(ins);
-        escritorio.moveToFront(ins);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jmNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmNotasActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioNotas Nota=new FormularioNotas();
-        Nota.setVisible(true);
-        escritorio.add(Nota);
-        escritorio.moveToFront(Nota);        
-    }//GEN-LAST:event_jmNotasActionPerformed
-
-    private void jmiListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListadoActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioListado listado=new FormularioListado();
-        listado.setVisible(true);
-        escritorio.add(listado);
-        escritorio.moveToFront(listado);
-    }//GEN-LAST:event_jmiListadoActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        
-        escritorio.removeAll();
-        escritorio.repaint();
-        CerrarMenu close=new CerrarMenu();
-        close.setVisible(true);
-        escritorio.add(close);
-        escritorio.moveToFront(close);
-        
-         this.setLocationRelativeTo(null);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,18 +205,11 @@ public class Menu extends javax.swing.JFrame {
     javax.swing.JMenu jMenu2;
     javax.swing.JMenu jMenu3;
     javax.swing.JMenu jMenu4;
-    javax.swing.JMenu jMenu5;
-    javax.swing.JMenu jMenu6;
     javax.swing.JMenu jMenu7;
     javax.swing.JMenuBar jMenuBar1;
-    javax.swing.JMenuBar jMenuBar2;
     javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
-    javax.swing.JMenuItem jMenuItem3;
-    javax.swing.JMenuItem jMenuItem4;
     javax.swing.JMenuItem jMenuItem5;
-    javax.swing.JMenuItem jmNotas;
-    javax.swing.JMenuItem jmiListado;
     // End of variables declaration//GEN-END:variables
 
   

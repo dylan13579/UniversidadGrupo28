@@ -8,8 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 
@@ -52,26 +51,28 @@ public class MateriaData {
     
     public void modificarMateria (Materia materia ){
         
-        String sql="UPDATE materia SET nombre = ?"
-                    + "WHERE idMateria = ?";
-        
-        try {
+        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE idMateria = ?";
 
-            PreparedStatement ps = red.prepareStatement(sql);
-            
-            ps.setInt(1, materia.getIdMateria());
-            ps.setString(2, materia.getNombre());
-            ps.setInt(3, materia.getAnioMateria());
-            ps.setBoolean(4, true);                                
-            int modi = ps.executeUpdate();
-            
-            if(modi==1){
-                JOptionPane.showMessageDialog(null, "Materia modificada");
-            }
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
+    try {
+        PreparedStatement ps = red.prepareStatement(sql);
+        
+        ps.setString(1, materia.getNombre());
+        ps.setInt(2, materia.getAnioMateria());
+        ps.setBoolean(3, materia.isEstado());
+        ps.setInt(4, materia.getIdMateria());
+
+        int modi = ps.executeUpdate();
+
+        if (modi == 1) {
+            JOptionPane.showMessageDialog(null, "Materia modificada");
+        } else {
+            JOptionPane.showMessageDialog(null, "La materia no pudo ser modificada");
         }
+
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia: " + ex.getMessage());
+    }
     }
     
     public void elimnarMateria(int id){
@@ -105,7 +106,7 @@ public class MateriaData {
             
             if(rs.next()){
                 materia=new Materia();
-                materia.setIdMateria(id);
+                materia.setIdMateria(id);              
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));
                 materia.setEstado(true);

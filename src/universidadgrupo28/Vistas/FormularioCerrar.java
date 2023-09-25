@@ -27,8 +27,7 @@ public class FormularioCerrar extends javax.swing.JInternalFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jbCerrarP = new javax.swing.JButton();
 
-        setClosable(true);
-
+        jbCerrarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/off_logout_17916.png"))); // NOI18N
         jbCerrarP.setText("Cerrar Programa");
         jbCerrarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,16 +42,12 @@ public class FormularioCerrar extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jbCerrarP)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jbCerrarP)
-                .addContainerGap(25, Short.MAX_VALUE))
+            .addComponent(jbCerrarP, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

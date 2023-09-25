@@ -23,8 +23,8 @@ public class UniversidadGrupo28 {
             //AlumnoData alu=new AlumnoData();
          //alu.guardarAlumno(estudiante);
          //alu.modificarAlumno(estudiante);
-               //alu.eliminarAlumno(19);
-              // alu.eliminarAlumnoPorDni(85321);
+               //alu.eliminarAlumno(46);
+               //alu.eliminarAlumnoPorDni(12345678);
                     //Alumno encontrado=alu.buscarAlumno(19);
                     //Alumno encontrado=alu.buscarAlumnoPorDni(45612398);
                     
@@ -50,21 +50,22 @@ public class UniversidadGrupo28 {
 
         //MATERIA DATA    
 
-    //Materia mat=new Materia(1,"Base de Datos ",1,true);
-            //MateriaData estudios=new MateriaData();
+    Materia mat=new Materia(1,"Histora",2,true);
+           MateriaData estudios=new MateriaData();
          //estudios.guaradarMateria(mat);
-         //estudios.modificarMateria(mat);
+         estudios.modificarMateria(mat);
                //estudios.elimnarMateria(11);
-                    //Materia encuentra=estudios.buscarMateria(3);
+                    //Materia encuentra=estudios.buscarMateria(16);
                     //Materia encuentra=estudios.buscarMateriaPorAnio(2);
-//                    if(encuentra!=null){
-//                    System.out.println("nombre = "+encuentra.getNombre());
-//                    System.out.println("año = "+encuentra.getAnioMateria());
+                    //if(encuentra!=null){
+//                        System.out.println("id = "+encuentra.getIdMateria());
+//                        System.out.println("nombre = "+encuentra.getNombre());
+//                        System.out.println("año = "+encuentra.getAnioMateria());
 //                        System.out.println("estado = "+encuentra.isEstado());
 //                       
 //                    
 //                    }
-         
+//         
 //      MateriaData estudios=new MateriaData(); 
 //      for(Materia materia:estudios.listarMateria()){
 //          System.out.println("Materia = "+materia.getNombre());
@@ -82,7 +83,7 @@ public class UniversidadGrupo28 {
 
 //      AlumnoData ad=new AlumnoData();
 //      MateriaData md=new MateriaData();
-      InscripcionData id=new InscripcionData();
+      ///InscripcionData id=new InscripcionData();
 
        //Alumno alum=ad.buscarAlumno(19);
        //Materia mate=md.buscarMateria(3);
