@@ -48,7 +48,10 @@ public class Menu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
 
@@ -96,9 +99,38 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/notes_pencil_913.png"))); // NOI18N
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/address_book_21477.png"))); // NOI18N
+        jMenuItem3.setText("Manejo de inscripciones");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/cabinet_21466.png"))); // NOI18N
+        jMenuItem4.setText("Manipulacion de notas");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/document_search_magnifying_glass_icon_187075.png"))); // NOI18N
+
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/folder_with_contents_21442.png"))); // NOI18N
+        jMenuItem6.setText("Alumnos por Materias");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem6);
+
         jMenuBar1.add(jMenu4);
 
         jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/log_logout_door_1563.png"))); // NOI18N
@@ -164,6 +196,37 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(materia);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioInscripcion inscri=new FormularioInscripcion();
+        inscri.setVisible(true);
+        
+        escritorio.add(inscri);
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioNotas notas=new FormularioNotas();
+        notas.setVisible(true);
+        
+        escritorio.add(notas);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioListado listar=new FormularioListado();
+        listar.setVisible(true);
+        
+        escritorio.add(listar);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,7 +272,10 @@ public class Menu extends javax.swing.JFrame {
     javax.swing.JMenuBar jMenuBar1;
     javax.swing.JMenuItem jMenuItem1;
     javax.swing.JMenuItem jMenuItem2;
+    javax.swing.JMenuItem jMenuItem3;
+    javax.swing.JMenuItem jMenuItem4;
     javax.swing.JMenuItem jMenuItem5;
+    javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 
   

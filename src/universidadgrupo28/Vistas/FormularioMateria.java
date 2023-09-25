@@ -191,8 +191,10 @@ private MateriaData md;
                 int cod=Integer.parseInt(jtCodigo.getText());
                 Materia mate=md.buscarMateria(cod);
              
+                String nombre = jtNombre.getText();
+                
                 if(mate!=null){
-                  
+               
                 jtNombre.setText(mate.getNombre());
                 int anio = mate.getAnioMateria();
                 jtAnio.setText(String.valueOf(anio));
@@ -359,7 +361,7 @@ private MateriaData md;
     // End of variables declaration//GEN-END:variables
 
 private void desactivarCampos() {
-        jtNombre.setEnabled(false);
+        //jtNombre.setEnabled(false);
         jtAnio.setEnabled(false);
         jrbEstado.setEnabled(false);
         

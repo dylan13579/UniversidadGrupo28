@@ -121,7 +121,34 @@ public class MateriaData {
         }
         return materia;
         
-    }  
+    } 
+    
+    public Materia buscarMateriaPorNombre(String nombre){
+        String sql = "SELECT idMateria, nombre, año FROM materia WHERE nombre = ? AND estado = 1";
+        
+        Materia materia=null;
+         try {
+         PreparedStatement ps = red.prepareStatement(sql);
+         ps.setString(1, nombre);
+         ResultSet rs = ps.executeQuery();
+         
+          if (rs.next()) {
+            materia = new Materia();
+            materia.setIdMateria(rs.getInt("idMateria"));
+            materia.setNombre(rs.getString("nombre"));
+            materia.setAnioMateria(rs.getInt("año"));
+            materia.setEstado(true);
+             
+          }else{
+              JOptionPane.showMessageDialog(null, "No existe esta materia");
+          }
+          ps.close();
+         } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia: " + ex.getMessage());
+        }
+         return materia;
+          
+    }
     
             
     public Materia buscarMateriaPorAnio (int año){
