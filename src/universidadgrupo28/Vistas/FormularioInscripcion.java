@@ -38,7 +38,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         matData = new MateriaData();
         
         
-        cargarAlumno();
+        cargarAlumnos();
         armarTabla();
         
         
@@ -59,6 +59,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Elegir = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,9 +68,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbInscribir = new javax.swing.JButton();
         jbAnularIns = new javax.swing.JButton();
         jbSalirInsc = new javax.swing.JButton();
-        jcbAlumno = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtTabla = new javax.swing.JTable();
+        jcbCombo = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -85,6 +86,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Californian FB", 1, 20)); // NOI18N
         jLabel3.setText("Lista de Materia");
 
+        Elegir.add(jrbInscriptas);
         jrbInscriptas.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jrbInscriptas.setText("Materias Inscriptas");
         jrbInscriptas.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +95,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        Elegir.add(jrbNoInscriptas);
         jrbNoInscriptas.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jrbNoInscriptas.setText("Materias no Inscriptas");
         jrbNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
@@ -119,12 +122,6 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbSalirInsc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirInscActionPerformed(evt);
-            }
-        });
-
-        jcbAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbAlumnoActionPerformed(evt);
             }
         });
 
@@ -158,9 +155,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(182, 182, 182))))
+                        .addGap(79, 79, 79)
+                        .addComponent(jcbCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -189,7 +186,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jcbAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -240,7 +237,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         if(fSelect != -1){
             
-        Alumno a=(Alumno)jcbAlumno.getSelectedItem();
+        Alumno a=(Alumno)jcbCombo.getSelectedItem();
         
         int idMateria=(Integer)modelo.getValueAt(fSelect, 0);
         
@@ -264,7 +261,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         int fSelect=jtTabla.getSelectedRow();
         if(fSelect != -1){
             
-            Alumno a= (Alumno)jcbAlumno.getSelectedItem();
+            Alumno a= (Alumno)jcbCombo.getSelectedItem();
             int idMateria=(Integer)modelo.getValueAt(fSelect, 0);
         
             insData.borrarIncripcion(a.getIdAlumno(), idMateria);
@@ -272,12 +269,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jbAnularInsActionPerformed
 
-    private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcbAlumnoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup Elegir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -285,16 +279,16 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbAnularIns;
     private javax.swing.JButton jbInscribir;
     private javax.swing.JButton jbSalirInsc;
-    private javax.swing.JComboBox<Alumno> jcbAlumno;
+    private javax.swing.JComboBox<Alumno> jcbCombo;
     private javax.swing.JRadioButton jrbInscriptas;
     private javax.swing.JRadioButton jrbNoInscriptas;
     private javax.swing.JTable jtTabla;
     // End of variables declaration//GEN-END:variables
 
 
-    private void cargarAlumno(){
+    private void cargarAlumnos(){
         for(Alumno item : listarA){
-            jcbAlumno.addItem(item);
+            jcbCombo.addItem(item);
         }
     }
     
@@ -304,9 +298,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         fCabecera.add("ID");
         fCabecera.add("Nombre");
         fCabecera.add("Año");
-        
-          modelo = new DefaultTableModel();
-                    
+                   
         for(Object it : fCabecera){
             
             modelo.addColumn(it);
@@ -321,20 +313,18 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void borrarFilasTabla(){
         int lineas = modelo.getRowCount() - 1;
 
-    if (lineas >= 0) { 
-        for(int i = lineas -1; i >= 0 ; i--){
+     
+        for(int i = lineas; i >= 0 ; i--){
             modelo.removeRow(i);
         }
     }
         
-    }
+ 
     
     
     private void cargarDatosNoInscriptas(){
-       
-         DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
         
-        Alumno selec = (Alumno) jcbAlumno.getSelectedItem();
+        Alumno selec = (Alumno) jcbCombo.getSelectedItem();
         
         listarM = insData.obternerMateriasNoCursadas(selec.getIdAlumno());
         
@@ -347,20 +337,20 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     private void cargarDatosInscripcion(){
 
-       Alumno selec = (Alumno) jcbAlumno.getSelectedItem();
+       Alumno selec = (Alumno) jcbCombo.getSelectedItem();
 
-      if(selec != null){
+      
        List<Materia> lista = insData.obternerMateriasCursadas(selec.getIdAlumno());
        
         for (Materia m : lista) {
         modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAnioMateria()});
         
-      
+    
        }
       }
-    }
+}
    
 
    
     
-}
+
