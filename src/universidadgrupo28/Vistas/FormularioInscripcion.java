@@ -38,14 +38,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
         
         cargarAlumnos();
-        armarTabla();
+        armarTablaA();
         
         
         jbAnularIns.setEnabled(false);
         jbInscribir.setEnabled(false);
         jrbNoInscriptas.setSelected(false);
         
-        jcbComboM.setSelectedIndex(-1);
+        jcbComboA.setSelectedIndex(-1);
         
   
       
@@ -70,8 +70,8 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbAnularIns = new javax.swing.JButton();
         jbSalirInsc = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtTabla = new javax.swing.JTable();
-        jcbComboM = new javax.swing.JComboBox<>();
+        jtTablaAlumno = new javax.swing.JTable();
+        jcbComboA = new javax.swing.JComboBox<>();
 
         setTitle("Formulario de Inscripcion");
 
@@ -123,7 +123,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        jtTabla.setModel(new javax.swing.table.DefaultTableModel(
+        jtTablaAlumno.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -134,7 +134,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jtTabla);
+        jScrollPane2.setViewportView(jtTablaAlumno);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,7 +168,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                         .addGap(90, 90, 90)
                         .addComponent(jLabel1)
                         .addGap(70, 70, 70)
-                        .addComponent(jcbComboM, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcbComboA, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,7 +182,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jcbComboM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbComboA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -229,11 +229,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
         // TODO add your handling code here:
         
-        int fSelect=jtTabla.getSelectedRow();
+        int fSelect=jtTablaAlumno.getSelectedRow();
         
         if(fSelect != -1){
             
-        Alumno a=(Alumno)jcbComboM.getSelectedItem();
+        Alumno a=(Alumno)jcbComboA.getSelectedItem();
         
         int idMateria=(Integer)modelo.getValueAt(fSelect, 0);
         
@@ -254,10 +254,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
     private void jbAnularInsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularInsActionPerformed
         // TODO add your handling code here:
-        int fSelect=jtTabla.getSelectedRow();
+        int fSelect=jtTablaAlumno.getSelectedRow();
         if(fSelect != -1){
             
-            Alumno a= (Alumno)jcbComboM.getSelectedItem();
+            Alumno a= (Alumno)jcbComboA.getSelectedItem();
             int idMateria=(Integer)modelo.getValueAt(fSelect, 0);
         
             insData.borrarIncripcion(a.getIdAlumno(), idMateria);
@@ -275,20 +275,20 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbAnularIns;
     private javax.swing.JButton jbInscribir;
     private javax.swing.JButton jbSalirInsc;
-    private javax.swing.JComboBox<Alumno> jcbComboM;
+    private javax.swing.JComboBox<Alumno> jcbComboA;
     private javax.swing.JRadioButton jrbInscriptas;
     private javax.swing.JRadioButton jrbNoInscriptas;
-    private javax.swing.JTable jtTabla;
+    private javax.swing.JTable jtTablaAlumno;
     // End of variables declaration//GEN-END:variables
 
 
     private void cargarAlumnos(){
         for(Alumno item : listarA){
-            jcbComboM.addItem(item);
+            jcbComboA.addItem(item);
         }
     }
     
-    private void armarTabla(){
+    private void armarTablaA(){
         ArrayList<Object> fCabecera = new ArrayList<>();
         
         fCabecera.add("ID");
@@ -300,7 +300,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             modelo.addColumn(it);
             
         }
-        jtTabla.setModel(modelo);
+        jtTablaAlumno.setModel(modelo);
     }
     
     
@@ -320,7 +320,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     private void cargarDatosNoInscriptas(){
         
-        Alumno selec = (Alumno) jcbComboM.getSelectedItem();
+        Alumno selec = (Alumno) jcbComboA.getSelectedItem();
         
         listarM = insData.obternerMateriasNoCursadas(selec.getIdAlumno());
         
@@ -333,7 +333,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     private void cargarDatosInscripcion(){
 
-       Alumno selec = (Alumno) jcbComboM.getSelectedItem();
+       Alumno selec = (Alumno) jcbComboA.getSelectedItem();
 
       
        List<Materia> lista = insData.obternerMateriasCursadas(selec.getIdAlumno());
@@ -343,7 +343,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         
     
        }
-      }
+    }
 }
    
 

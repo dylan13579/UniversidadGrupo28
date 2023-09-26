@@ -186,52 +186,40 @@ private MateriaData md;
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        
-                                             
-        // TODO add your handling code here:  
-        try{
-                String nombreM = jtNombre.getText();
-                
-                Materia mate;
-                
-                if(nombreM.matches("\\d+")){ //buscar por codigo
-                    int cod = Integer.parseInt(nombreM);
-                    
-                    mate=md.buscarMateria(cod);
-                }else{
-                    mate=md.buscarMateriaPorNombre(nombreM);
-                }
-                
-                if(mate != null){
-                    int code= mate.getIdMateria();
-                    String materia = mate.getNombre();
-                    int anio = mate.getAnioMateria();
-                   
-                    jtCodigo.setText(String.valueOf(code));
-                    jtNombre.setText(materia);
-                    jtAnio.setText(String.valueOf(anio));
-                
-                    jrbEstado.setSelected(mate.isEstado());
-                    
-       
-                    activarCampos();
-                    jbEliminar.setEnabled(true);
-                    jbGuardar.setEnabled(false);
-                    jbModificar.setEnabled(true);
-                  }else{
-                    limpiar();
-                    activarCampos();
-                   desactivarCampos();
+         
+       try {
+        String nuevo = jtNombre.getText();
+        Materia mate = null;
+
+        if (nuevo.matches("\\d+")) {
+            int cod = Integer.parseInt(nuevo);
+            mate = md.buscarMateria(cod);
+        } else {
+           
+            mate = md.buscarMateriaPorNombre(nuevo);
+        }
+
+        if (mate != null) {
+            jtCodigo.setText(String.valueOf(mate.getIdMateria()));
+            jtNombre.setText(mate.getNombre());
+            jtAnio.setText(String.valueOf(mate.getAnioMateria()));
+            jrbEstado.setSelected(mate.isEstado());
             
-                }       
-            
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog (null, "Debe ingresar un numero");
-            jtCodigo.requestFocus();
+            activarCampos();
+            jbEliminar.setEnabled(true);
+            jbGuardar.setEnabled(false);
+            jbModificar.setEnabled(true);
+        } else {
             limpiar();
             desactivarCampos();
-            
-        }             
+            JOptionPane.showMessageDialog(null, "No se encontró la materia");
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Debe ingresar un número válido en el campo Código");
+        jtCodigo.requestFocus();
+        limpiar();
+        desactivarCampos();
+    }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -375,7 +363,7 @@ private MateriaData md;
 
 private void desactivarCampos() {
         
-        //jtNombre.setEnabled(false);
+        //jtNombre.setEnabled(true);
         jtAnio.setEnabled(false);
         jrbEstado.setEnabled(false);
         

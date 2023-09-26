@@ -95,7 +95,7 @@ public class MateriaData {
    
     
     public Materia buscarMateria(int id){
-        String sql="SELECT  nombre, año FROM materia WHERE idMateria = ? AND estado = 1 ";
+        String sql="SELECT nombre, año FROM materia WHERE idMateria = ? AND estado = 1";
         
         Materia materia=null;
         
@@ -111,13 +111,12 @@ public class MateriaData {
                 materia.setAnioMateria(rs.getInt("año"));
                 materia.setEstado(true);
      
-            }else {
-                JOptionPane.showMessageDialog(null, "No exixte la materia con ese ID");
             }
-           
+           rs.close();
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al cargar la tabla materia"+ex.getMessage());
+              ex.printStackTrace();
         }
         return materia;
         
@@ -139,12 +138,10 @@ public class MateriaData {
             materia.setAnioMateria(rs.getInt("año"));
             materia.setEstado(true);
              
-          }else{
-              JOptionPane.showMessageDialog(null, "No existe esta materia");
           }
-          ps.close();
+          
          } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia: " + ex.getMessage());
+       ex.printStackTrace();
         }
          return materia;
           

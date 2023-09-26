@@ -223,7 +223,9 @@ public class InscripcionData {
         
         ArrayList<Alumno> alumnosMateria=new ArrayList<>();
         
-        String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado FROM inscripcion i,alumno a WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
+        String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado "
+                + "FROM inscripcion i,alumno a "
+                + "WHERE i.idAlumno = a.idAlumno AND idMateria = ? AND a.estado = 1";
         
        try {
            PreparedStatement ps=red.prepareStatement(sql);
@@ -232,6 +234,7 @@ public class InscripcionData {
            while(rs.next()){
                
                Alumno alumno=new Alumno();
+               
                alumno.setIdAlumno(rs.getInt("idAlumno"));
                alumno.setDni(rs.getInt("dni"));
                alumno.setApellido(rs.getString("apellido"));
@@ -245,6 +248,7 @@ public class InscripcionData {
            
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+            ex.printStackTrace();
        }
        return alumnosMateria;
     }

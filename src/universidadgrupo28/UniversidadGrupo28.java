@@ -58,20 +58,21 @@ public class UniversidadGrupo28 {
         //MATERIA DATA    
 
 //    Materia mat=new Materia(1,"Histora",2,true);
-//           MateriaData estudios=new MateriaData();
+           MateriaData estudios=new MateriaData();
 //         estudios.guaradarMateria(mat);
 //         estudios.modificarMateria(mat);
 //               estudios.elimnarMateria(11);
-//                    Materia encuentra=estudios.buscarMateria(16);
+                    Materia encuentra=estudios.buscarMateria(16);
 //                    Materia encuentra=estudios.buscarMateriaPorAnio(2);
-//                    if(encuentra!=null){
-//                        System.out.println("id = "+encuentra.getIdMateria());
-//                        System.out.println("nombre = "+encuentra.getNombre());
-//                        System.out.println("año = "+encuentra.getAnioMateria());
-//                        System.out.println("estado = "+encuentra.isEstado());
-//                       
-//                   
-//                    }
+                      //Materia encuentra=estudios.buscarMateriaPorNombre("Calculo");
+                    if(encuentra!=null){
+                        System.out.println("id = "+encuentra.getIdMateria());
+                        System.out.println("nombre = "+encuentra.getNombre());
+                        System.out.println("año = "+encuentra.getAnioMateria());
+                        System.out.println("estado = "+encuentra.isEstado());
+                       
+                   
+                    }
 //         
 //      MateriaData estudios=new MateriaData(); 
 //      for(Materia materia:estudios.listarMateria()){
@@ -79,6 +80,8 @@ public class UniversidadGrupo28 {
 //          System.out.println("Año = "+materia.getIdMateria());
 //          System.out.println("-----------------");
 //            }
+
+
         
 
 
@@ -86,7 +89,7 @@ public class UniversidadGrupo28 {
 
 //      AlumnoData ad=new AlumnoData();
 //      MateriaData md=new MateriaData();
-      InscripcionData id=new InscripcionData();
+     //InscripcionData id=new InscripcionData();
 //      
 //
 //       Alumno alum=ad.buscarAlumno(58);
@@ -131,13 +134,15 @@ public class UniversidadGrupo28 {
 //              System.out.println("Materia no Cursada  = "+materias.getNombre());
 //         }
            
-//
-//           for(Alumno estudi:id.obternerAlumnosPorMaterias(3)){
+
+//           for(Alumno estudi:id.obternerAlumnosPorMaterias(20)){
 //             
 //            System.out.println("ID de Alumno: " + estudi.getIdAlumno());
-//               System.out.println("nombre = "+estudi.getApellido()+ " "+ estudi.getNombre());
+//               System.out.println("dni "+estudi.getDni());
+//               System.out.println("apellido = "+estudi.getApellido());
+//               System.out.println("nombre = "+estudi.getNombre());
 //               System.out.println("-------");
 //             
 //           }
-    }
+   }
 }
