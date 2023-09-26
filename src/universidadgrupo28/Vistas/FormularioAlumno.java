@@ -234,7 +234,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                }
                 
         } catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Debe ingresar el documneto");
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero de documento");
             jtDocumento.requestFocus();
             limpiar();
             desactivarCampos();
