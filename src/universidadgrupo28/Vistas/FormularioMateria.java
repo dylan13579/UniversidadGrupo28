@@ -187,25 +187,38 @@ private MateriaData md;
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
         
+                                             
+        // TODO add your handling code here:  
         try{
-                int cod=Integer.parseInt(jtCodigo.getText());
-                Materia mate=md.buscarMateria(cod);
-             
-                String nombre = jtNombre.getText();
+                String nombreM = jtNombre.getText();
                 
-                if(mate!=null){
-               
-                jtNombre.setText(mate.getNombre());
-                int anio = mate.getAnioMateria();
-                jtAnio.setText(String.valueOf(anio));
-
-                jrbEstado.setSelected(mate.isEstado());
-       
-             activarCampos();
-             jbEliminar.setEnabled(true);
-              jbGuardar.setEnabled(false);
-              jbModificar.setEnabled(true);
+                Materia mate;
+                
+                if(nombreM.matches("\\d+")){ //buscar por codigo
+                    int cod = Integer.parseInt(nombreM);
+                    
+                    mate=md.buscarMateria(cod);
                 }else{
+                    mate=md.buscarMateriaPorNombre(nombreM);
+                }
+                
+                if(mate != null){
+                    int code= mate.getIdMateria();
+                    String materia = mate.getNombre();
+                    int anio = mate.getAnioMateria();
+                   
+                    jtCodigo.setText(String.valueOf(code));
+                    jtNombre.setText(materia);
+                    jtAnio.setText(String.valueOf(anio));
+                
+                    jrbEstado.setSelected(mate.isEstado());
+                    
+       
+                    activarCampos();
+                    jbEliminar.setEnabled(true);
+                    jbGuardar.setEnabled(false);
+                    jbModificar.setEnabled(true);
+                  }else{
                     limpiar();
                     activarCampos();
                    desactivarCampos();
@@ -218,7 +231,7 @@ private MateriaData md;
             limpiar();
             desactivarCampos();
             
-        } 
+        }             
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
@@ -361,6 +374,7 @@ private MateriaData md;
     // End of variables declaration//GEN-END:variables
 
 private void desactivarCampos() {
+        
         //jtNombre.setEnabled(false);
         jtAnio.setEnabled(false);
         jrbEstado.setEnabled(false);

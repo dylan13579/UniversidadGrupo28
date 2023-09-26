@@ -127,9 +127,9 @@ public class UniversidadGrupo28 {
 
 
 
-          for(Materia materias:id.obternerMateriasNoCursadas(2)){
-              System.out.println("Materia no Cursada  = "+materias.getNombre());
-         }
+//          for(Materia materias:id.obternerMateriasNoCursadas(2)){
+//              System.out.println("Materia no Cursada  = "+materias.getNombre());
+//         }
            
 //
 //           for(Alumno estudi:id.obternerAlumnosPorMaterias(3)){

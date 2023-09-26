@@ -37,18 +37,11 @@ private DefaultTableModel modelo=new DefaultTableModel() {
     public FormularioListado() {
         initComponents();
         armarCabecera();
-        cargarCombo();
-       //llenarTabla();
-        jcbCombo.setSelectedIndex(-1);
+       
+        jcbComboM.setSelectedIndex(-1);
        
     }
-     private void cargarCombo(){
-        MateriaData matD =new MateriaData();
-        List<Materia> mat=matD.listarMateria();
-        for (Materia m : mat) {
-            jcbCombo.addItem(m);
-        }
-    }
+   
     
 
     /**
@@ -64,14 +57,15 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtListarTabla = new javax.swing.JTable();
         jbSalir = new javax.swing.JButton();
-        jcbCombo = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jcbComboM = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Listado de Alumno por Materia");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jLabel2.setText("Seleccione una materia:");
 
         jtListarTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,42 +88,46 @@ private DefaultTableModel modelo=new DefaultTableModel() {
             }
         });
 
-        jcbCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbComboActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Californian FB", 1, 20)); // NOI18N
+        jLabel1.setText("Alumnos por Materias");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbSalir)
-                .addGap(88, 88, 88))
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jcbCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbSalir)
+                                .addGap(7, 7, 7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcbComboM, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel1)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jcbCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                    .addComponent(jcbComboM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jbSalir)
-                .addGap(55, 55, 55))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -140,36 +138,13 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    private void jcbComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbComboActionPerformed
-        // TODO add your handling code here:
-        // Obtén la materia seleccionada en el JComboBox
-//     Materia mate = (Materia) jcbCombo.getSelectedItem();
-//
-//    if (mate != null) {
-//        // Llama al método para obtener la lista de alumnos para la materia seleccionada
-//        List<Alumno> alumnosMateria = id.obternerAlumnosPorMaterias(mate.getIdMateria());
-//
-//        // Actualiza la tabla con los datos de los alumnos
-//        DefaultTableModel modelo = (DefaultTableModel) jtListarTabla.getModel();
-//        modelo.setRowCount(0); // Limpia la tabla antes de agregar nuevos datos
-//
-//        for (Alumno alumno : alumnosMateria) {
-//            modelo.addRow(new Object[]{
-//                alumno.getIdAlumno(),
-//                alumno.getDni(),
-//                alumno.getApellido(),
-//                alumno.getNombre()
-//            });
-//        }
-//    }
-    }//GEN-LAST:event_jcbComboActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JLabel jLabel1;
     javax.swing.JLabel jLabel2;
     javax.swing.JScrollPane jScrollPane1;
     javax.swing.JButton jbSalir;
-    javax.swing.JComboBox<Materia> jcbCombo;
+    javax.swing.JComboBox<String> jcbComboM;
     javax.swing.JTable jtListarTabla;
     // End of variables declaration//GEN-END:variables
 
@@ -180,7 +155,7 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         modelo.addColumn("Nombre");
         jtListarTabla.setModel(modelo);
         
-         Materia mate = (Materia) jcbCombo.getSelectedItem();
+
 //
 
     }

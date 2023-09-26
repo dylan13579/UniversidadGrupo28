@@ -202,7 +202,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioInscripcion inscri=new FormularioInscripcion();
         inscri.setVisible(true);
-        
+        inscri.getContentPane().setBackground(new Color(226, 181, 56));
         escritorio.add(inscri);
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
