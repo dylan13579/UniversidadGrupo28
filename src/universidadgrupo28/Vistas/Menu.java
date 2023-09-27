@@ -213,7 +213,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioNotas notas=new FormularioNotas();
         notas.setVisible(true);
-        
+        notas.getContentPane().setBackground(new Color(232 , 89, 36));
         escritorio.add(notas);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
@@ -223,7 +223,7 @@ public class Menu extends javax.swing.JFrame {
         escritorio.repaint();
         FormularioListado listar=new FormularioListado();
         listar.setVisible(true);
-        
+        listar.getContentPane().setBackground(new Color(176, 218, 72));
         escritorio.add(listar);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 

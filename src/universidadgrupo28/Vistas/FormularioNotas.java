@@ -1,27 +1,23 @@
 
 package universidadgrupo28.Vistas;
 
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author Gustavo
  */
 public class FormularioNotas extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo=new DefaultTableModel() {
-    
-    public boolean isCellEditTable(int f, int c){
-        return false;    
-    }
 
-};    
+
+    
 
     /**
      * Creates new form FormularioNotas
      */
     public FormularioNotas() {
         initComponents();
-        armarCabecera();
+        
     }
 
     /**
@@ -38,11 +34,10 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         jlNotas = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jcbNotas = new javax.swing.JComboBox<>();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtNotas = new javax.swing.JTable();
         jbGuardarNotas = new javax.swing.JButton();
         jbSalirNotas = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,20 +52,29 @@ private DefaultTableModel modelo=new DefaultTableModel() {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setNormalBounds(new java.awt.Rectangle(0, 0, 128, 0));
 
+        jlNotas.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jlNotas.setText("Carga de Notas");
 
+        jLabel1.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
         jLabel1.setText("Seleccione un Alumno:");
 
-        jcbNotas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jbGuardarNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/savedisk_floppydisk_guardar_1543.png"))); // NOI18N
+        jbGuardarNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarNotasActionPerformed(evt);
+            }
+        });
 
-        jInternalFrame1.setVisible(true);
+        jbSalirNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/cancellationbutton_exitneartheaction_botondecancelacion_salida_6335.png"))); // NOI18N
+        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirNotasActionPerformed(evt);
+            }
+        });
 
-        jtNotas.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,81 +85,48 @@ private DefaultTableModel modelo=new DefaultTableModel() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jtNotas);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jbGuardarNotas.setText("Guardar");
-        jbGuardarNotas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbGuardarNotasActionPerformed(evt);
-            }
-        });
-
-        jbSalirNotas.setText("Salir");
-        jbSalirNotas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirNotasActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jbGuardarNotas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbSalirNotas)
-                .addGap(161, 161, 161))
+                .addGap(230, 230, 230)
+                .addComponent(jlNotas)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcbNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(79, 79, 79)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(jlNotas)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(66, 66, 66)
+                        .addComponent(jbGuardarNotas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                        .addComponent(jbSalirNotas)
+                        .addGap(106, 106, 106))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jcbNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jlNotas)
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(27, 27, 27)
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(jcbNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardarNotas)
                     .addComponent(jbSalirNotas))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         getAccessibleContext().setAccessibleName("Formulario de Notas");
@@ -175,23 +146,15 @@ private DefaultTableModel modelo=new DefaultTableModel() {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JInternalFrame jInternalFrame1;
     javax.swing.JLabel jLabel1;
     javax.swing.JScrollPane jScrollPane1;
     javax.swing.JScrollPane jScrollPane2;
     javax.swing.JTable jTable1;
+    javax.swing.JTable jTable2;
     javax.swing.JButton jbGuardarNotas;
     javax.swing.JButton jbSalirNotas;
     javax.swing.JComboBox<String> jcbNotas;
     javax.swing.JLabel jlNotas;
-    javax.swing.JTable jtNotas;
     // End of variables declaration//GEN-END:variables
 
-    private void armarCabecera(){
-        modelo.addColumn("Codigo");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Nota");
-        jtNotas.setModel(modelo);
-    
-    }
 }

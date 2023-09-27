@@ -5,8 +5,10 @@ package universidadgrupo28.Vistas;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo28.AccesoADatos.*;
-import universidadgrupo28.Entidades.*;
+import universidadgrupo28.AccesoADatos.InscripcionData;
+import universidadgrupo28.AccesoADatos.MateriaData;
+import universidadgrupo28.Entidades.Alumno;
+import universidadgrupo28.Entidades.Materia;
 
 
 public class FormularioListado extends javax.swing.JInternalFrame {
@@ -17,8 +19,6 @@ public class FormularioListado extends javax.swing.JInternalFrame {
     
     
     private InscripcionData insData;
-
-   
     
     private MateriaData mateData;
     
@@ -59,9 +59,6 @@ public class FormularioListado extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jcbComboMateria = new javax.swing.JComboBox<>();
 
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
         setTitle("Listado de Alumno por Materia");
 
         jLabel2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
@@ -80,7 +77,7 @@ public class FormularioListado extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtListarTablaMateria);
 
-        jbSalir.setText("Salir");
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo28/Imagenes/cancellationbutton_exitneartheaction_botondecancelacion_salida_6335.png"))); // NOI18N
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -89,6 +86,12 @@ public class FormularioListado extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Californian FB", 1, 20)); // NOI18N
         jLabel1.setText("Alumnos por Materias");
+
+        jcbComboMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbComboMateriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +105,6 @@ public class FormularioListado extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jbSalir)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -110,6 +112,10 @@ public class FormularioListado extends javax.swing.JInternalFrame {
                                 .addComponent(jcbComboMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)))))
                 .addContainerGap(80, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbSalir)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,11 +126,11 @@ public class FormularioListado extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jcbComboMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jbSalir)
-                .addGap(20, 20, 20))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -134,6 +140,15 @@ public class FormularioListado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jcbComboMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbComboMateriaActionPerformed
+        // TODO add your handling code here:
+      
+       
+            borrarFilasTablaM();
+        mostraMateriaElegida();
+        
+    }//GEN-LAST:event_jcbComboMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -171,13 +186,13 @@ public class FormularioListado extends javax.swing.JInternalFrame {
         
     }
      
-       private void  mostraMateriaElegida(){
+    private void  mostraMateriaElegida(){
          
-       borrarFilasTablaM();
+      
            
          Materia elegida = (Materia) jcbComboMateria.getSelectedItem();
          
-         if(elegida != null){
+        if(elegida != null){
              List<Alumno> listar = insData.obternerAlumnosPorMaterias(elegida.getIdMateria());
          
          
@@ -187,18 +202,12 @@ public class FormularioListado extends javax.swing.JInternalFrame {
                     a.getIdAlumno(),
                     a.getDni(),
                     a.getApellido(),
-                    a.getNombre(),
-                    //a.getFechaNac(),
-                    //a.isEstado()
-                    
+                    a.getNombre()
                     });
                }
                
-         
-          }  
-         
-         
-      }
+            }
+     }
        
        private void borrarFilasTablaM(){
            

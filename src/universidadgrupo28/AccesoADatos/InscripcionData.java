@@ -221,7 +221,7 @@ public class InscripcionData {
     
     public List<Alumno> obternerAlumnosPorMaterias(int idMateria){
         
-        ArrayList<Alumno> alumnosMateria=new ArrayList<>();
+        List<Alumno> alumnosMateria=new ArrayList<>();
         
         String sql="SELECT a.idAlumno, dni, nombre, apellido, fechaNacimiento, estado "
                 + "FROM inscripcion i,alumno a "

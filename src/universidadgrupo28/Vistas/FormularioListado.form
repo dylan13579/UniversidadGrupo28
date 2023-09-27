@@ -2,9 +2,6 @@
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <Properties>
-    <Property name="closable" type="boolean" value="true"/>
-    <Property name="iconifiable" type="boolean" value="true"/>
-    <Property name="maximizable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Listado de Alumno por Materia"/>
   </Properties>
   <SyntheticProperties>
@@ -34,7 +31,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="453" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -46,6 +42,11 @@
                   </Group>
               </Group>
               <EmptySpace pref="80" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,11 +60,11 @@
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jcbComboMateria" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="170" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
               <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,7 +131,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="jbSalir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salir"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/universidadgrupo28/Imagenes/cancellationbutton_exitneartheaction_botondecancelacion_salida_6335.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbSalirActionPerformed"/>
@@ -150,6 +153,9 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbComboMateriaActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Materia&gt;"/>
       </AuxValues>
